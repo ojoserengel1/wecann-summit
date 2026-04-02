@@ -1,0 +1,3393 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WeCann Summit — Design System</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================================
+       DESIGN TOKENS — WeCann Summit (Light / Medical)
+    ============================================================ */
+    :root {
+      /* --- Brand Core --- */
+      --teal:          #17C3B2;
+      --teal-dark:     #0EA99A;
+      --teal-deeper:   #0A877B;
+      --teal-light:    #E6F9F7;
+      --teal-mid:      #B2EDE8;
+
+      --pink:          #FF2D78;
+      --pink-dark:     #E0205E;
+      --pink-light:    #FFF0F5;
+      --pink-mid:      #FFB3CC;
+
+      --navy:          #0D1B2A;
+      --navy-mid:      #1A2E42;
+      --navy-light:    #2A4359;
+
+      /* --- Neutrals --- */
+      --white:         #FFFFFF;
+      --gray-25:       #FAFBFC;
+      --gray-50:       #F5F7FA;
+      --gray-100:      #EEF1F6;
+      --gray-200:      #E2E7EF;
+      --gray-300:      #C9D1DC;
+      --gray-400:      #9BAABB;
+      --gray-500:      #6B7E92;
+      --gray-600:      #4A5E72;
+      --gray-700:      #2E4156;
+      --gray-800:      #1A2E42;
+      --gray-900:      #0D1B2A;
+
+      /* --- Text --- */
+      --text-primary:   #0D1B2A;
+      --text-secondary: #4A5E72;
+      --text-tertiary:  #6B7E92;
+      --text-disabled:  #9BAABB;
+      --text-on-dark:   #FFFFFF;
+      --text-teal:      #0A877B;
+      --text-pink:      #C41454;
+
+      /* --- Backgrounds --- */
+      --bg-page:       #FFFFFF;
+      --bg-subtle:     #F5F7FA;
+      --bg-muted:      #EEF1F6;
+      --bg-teal:       #E6F9F7;
+      --bg-pink:       #FFF0F5;
+      --bg-navy:       #0D1B2A;
+
+      /* --- Borders --- */
+      --border-light:  #E2E7EF;
+      --border-mid:    #C9D1DC;
+      --border-teal:   rgba(23,195,178,0.35);
+      --border-pink:   rgba(255,45,120,0.25);
+
+      /* --- Typography --- */
+      --font-display:  'DM Sans', -apple-system, sans-serif;
+      --font-body:     'DM Sans', -apple-system, sans-serif;
+      --font-mono:     'IBM Plex Mono', 'Courier New', monospace;
+
+      /* --- Font Sizes --- */
+      --fs-2xs:  10px;
+      --fs-xs:   12px;
+      --fs-sm:   13px;
+      --fs-base: 15px;
+      --fs-md:   18px;
+      --fs-lg:   22px;
+      --fs-xl:   28px;
+      --fs-2xl:  34px;
+      --fs-3xl:  42px;
+      --fs-4xl:  52px;
+      --fs-5xl:  64px;
+      --fs-6xl:  80px;
+
+      /* --- Font Weights --- */
+      --fw-light:  300;
+      --fw-normal: 400;
+      --fw-medium: 500;
+      --fw-semi:   600;
+      --fw-bold:   700;
+
+      /* --- Line Heights --- */
+      --lh-none:    1;
+      --lh-tight:   1.2;
+      --lh-snug:    1.35;
+      --lh-normal:  1.55;
+      --lh-relaxed: 1.75;
+      --lh-loose:   2;
+
+      /* --- Spacing (base 4px) --- */
+      --sp-1:   4px;
+      --sp-2:   8px;
+      --sp-3:   12px;
+      --sp-4:   16px;
+      --sp-5:   20px;
+      --sp-6:   24px;
+      --sp-7:   28px;
+      --sp-8:   32px;
+      --sp-10:  40px;
+      --sp-12:  48px;
+      --sp-14:  56px;
+      --sp-16:  64px;
+      --sp-20:  80px;
+      --sp-24:  96px;
+      --sp-32: 128px;
+
+      /* --- Border Radius --- */
+      --r-xs:   2px;
+      --r-sm:   4px;
+      --r-md:   8px;
+      --r-lg:   12px;
+      --r-xl:   16px;
+      --r-2xl:  24px;
+      --r-3xl:  32px;
+      --r-full: 9999px;
+
+      /* --- Shadows (light theme) --- */
+      --shadow-xs:  0 1px 3px rgba(13,27,42,0.06), 0 1px 2px rgba(13,27,42,0.04);
+      --shadow-sm:  0 2px 8px rgba(13,27,42,0.08), 0 1px 3px rgba(13,27,42,0.06);
+      --shadow-md:  0 4px 16px rgba(13,27,42,0.10), 0 2px 6px rgba(13,27,42,0.06);
+      --shadow-lg:  0 8px 32px rgba(13,27,42,0.12), 0 4px 12px rgba(13,27,42,0.08);
+      --shadow-xl:  0 16px 48px rgba(13,27,42,0.14), 0 6px 18px rgba(13,27,42,0.08);
+      --shadow-teal: 0 4px 20px rgba(23,195,178,0.25);
+      --shadow-pink: 0 4px 20px rgba(255,45,120,0.20);
+      --shadow-navy: 0 8px 32px rgba(13,27,42,0.20);
+
+      /* --- Gradientes --- */
+      /* Principal: Teal → Cyan → Violeta → Pink (identidade da marca) */
+      --gradient-brand:       linear-gradient(90deg, #17C3B2 0%, #00CFFF 30%, #9B3DC8 65%, #FF2D78 100%);
+      --gradient-brand-135:   linear-gradient(135deg, #17C3B2 0%, #00CFFF 30%, #9B3DC8 65%, #FF2D78 100%);
+      --gradient-brand-45:    linear-gradient(45deg,  #17C3B2 0%, #00CFFF 30%, #9B3DC8 65%, #FF2D78 100%);
+
+      /* Bicolor: Teal → Pink (versão simplificada para botões e bordas) */
+      --gradient-tp:          linear-gradient(90deg, #17C3B2, #FF2D78);
+      --gradient-tp-135:      linear-gradient(135deg, #17C3B2, #FF2D78);
+      --gradient-tp-vert:     linear-gradient(180deg, #17C3B2, #FF2D78);
+
+      /* Monocromáticos */
+      --gradient-teal:        linear-gradient(135deg, #17C3B2 0%, #0A877B 100%);
+      --gradient-teal-light:  linear-gradient(135deg, #E6F9F7 0%, #B2EDE8 100%);
+      --gradient-pink:        linear-gradient(135deg, #FF2D78 0%, #C41454 100%);
+      --gradient-pink-light:  linear-gradient(135deg, #FFF0F5 0%, #FFB3CC 100%);
+      --gradient-navy:        linear-gradient(135deg, #0D1B2A 0%, #1A2E42 100%);
+      --gradient-navy-teal:   linear-gradient(135deg, #0D1B2A 0%, #0A877B 100%);
+
+      /* Overlay / fundo atmosférico */
+      --gradient-hero:        linear-gradient(160deg, #0D1B2A 0%, #0D1B2A 55%, #0A2A35 100%);
+      --gradient-overlay-teal: linear-gradient(180deg, transparent 40%, rgba(23,195,178,0.12) 100%);
+      --gradient-fade-white:  linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.95) 100%);
+      --gradient-fade-navy:   linear-gradient(180deg, transparent 0%, rgba(13,27,42,0.90) 100%);
+
+      /* Radial */
+      --gradient-radial-teal: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(23,195,178,0.20) 0%, transparent 70%);
+      --gradient-radial-pink: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(255,45,120,0.15) 0%, transparent 70%);
+
+      /* --- Transitions --- */
+      --ease-out:  cubic-bezier(0.16, 1, 0.3, 1);
+      --t-fast:  150ms;
+      --t-base:  240ms;
+      --t-slow:  380ms;
+
+      /* --- Layout --- */
+      --container-sm:   800px;
+      --container-lg:  1200px;
+      --sidebar-w:      256px;
+    }
+
+    /* ============================================================
+       RESET
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg-page);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      font-size: var(--fs-base);
+      line-height: var(--lh-normal);
+      -webkit-font-smoothing: antialiased;
+    }
+    ::selection { background: rgba(23,195,178,0.2); }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--gray-50); }
+    ::-webkit-scrollbar-thumb { background: var(--gray-300); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--teal); }
+
+    /* ============================================================
+       LAYOUT
+    ============================================================ */
+    .layout { display: flex; min-height: 100vh; }
+
+    /* Sidebar */
+    .sidebar {
+      width: var(--sidebar-w);
+      flex-shrink: 0;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      background: var(--white);
+      border-right: 1px solid var(--border-light);
+      display: flex;
+      flex-direction: column;
+    }
+    .sidebar::-webkit-scrollbar { width: 3px; }
+    .sidebar::-webkit-scrollbar-thumb { background: var(--border-light); }
+
+    .sidebar-header {
+      padding: var(--sp-6) var(--sp-6) var(--sp-5);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .sidebar-logo {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-3);
+      margin-bottom: var(--sp-3);
+    }
+    .sidebar-logo-mark {
+      width: 32px; height: 32px;
+      border-radius: var(--r-md);
+      background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+      display: flex; align-items: center; justify-content: center;
+    }
+    .sidebar-wordmark {
+      font-family: var(--font-body);
+      font-size: var(--fs-md);
+      font-weight: var(--fw-semi);
+      color: var(--text-primary);
+      line-height: 1;
+    }
+    .sidebar-wordmark span { color: var(--teal); }
+    .sidebar-subtitle {
+      font-size: var(--fs-xs);
+      color: var(--text-tertiary);
+      font-family: var(--font-mono);
+    }
+
+    .nav-section { padding: var(--sp-4) 0; border-bottom: 1px solid var(--border-light); }
+    .nav-section:last-child { border-bottom: none; }
+    .nav-section-label {
+      font-size: var(--fs-2xs);
+      font-weight: var(--fw-bold);
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      padding: var(--sp-2) var(--sp-6) var(--sp-1);
+    }
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-2);
+      padding: 6px var(--sp-6);
+      font-size: var(--fs-sm);
+      color: var(--text-secondary);
+      text-decoration: none;
+      border-left: 2px solid transparent;
+      transition: all var(--t-fast);
+      line-height: 1.4;
+    }
+    .nav-link:hover { color: var(--text-primary); background: var(--gray-50); }
+    .nav-link.active {
+      color: var(--teal-deeper);
+      border-left-color: var(--teal);
+      background: var(--teal-light);
+      font-weight: var(--fw-medium);
+    }
+
+    /* Main */
+    .main { flex: 1; overflow-x: hidden; }
+
+    /* ============================================================
+       SECTION
+    ============================================================ */
+    .ds-section {
+      padding: var(--sp-16) var(--sp-16);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .ds-section:nth-child(even) { background: var(--gray-25); }
+    .ds-section:last-child { border-bottom: none; }
+
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--sp-2);
+      font-family: var(--font-mono);
+      font-size: var(--fs-xs);
+      color: var(--teal-deeper);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: var(--sp-3);
+    }
+    .section-eyebrow::before {
+      content: '';
+      width: 20px; height: 1px;
+      background: var(--teal);
+    }
+    .section-title {
+      font-family: var(--font-body);
+      font-size: var(--fs-3xl);
+      font-weight: var(--fw-bold);
+      color: var(--text-primary);
+      line-height: var(--lh-tight);
+      letter-spacing: -0.03em;
+      margin-bottom: var(--sp-4);
+    }
+    .section-title em { color: var(--teal); font-style: normal; }
+    .section-title .accent-pink { color: var(--pink); font-style: normal; }
+    .section-desc {
+      font-size: var(--fs-base);
+      color: var(--text-secondary);
+      max-width: 580px;
+      line-height: var(--lh-relaxed);
+      margin-bottom: var(--sp-12);
+    }
+
+    /* ============================================================
+       COVER
+    ============================================================ */
+    .cover {
+      background: var(--navy);
+      min-height: 540px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: var(--sp-20) var(--sp-16);
+      position: relative;
+      overflow: hidden;
+    }
+    .cover::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 60% at 80% 20%, rgba(23,195,178,0.18) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 50% at 10% 80%, rgba(255,45,120,0.10) 0%, transparent 55%);
+    }
+    /* Subtle dot grid */
+    .cover::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+    .cover-inner { position: relative; z-index: 1; }
+    .cover-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--sp-2);
+      border: 1px solid rgba(23,195,178,0.4);
+      border-radius: var(--r-full);
+      padding: 5px var(--sp-4) 5px var(--sp-3);
+      margin-bottom: var(--sp-8);
+      font-size: var(--fs-xs);
+      color: var(--teal);
+      font-family: var(--font-mono);
+      letter-spacing: 0.08em;
+    }
+    .cover-badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--teal);
+    }
+    .cover-title {
+      font-family: var(--font-body);
+      font-size: clamp(48px, 6vw, 80px);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      margin-bottom: var(--sp-8);
+    }
+    .cover-title em { color: var(--teal); font-style: normal; }
+    .cover-meta {
+      display: flex;
+      gap: var(--sp-8);
+      flex-wrap: wrap;
+      padding-top: var(--sp-8);
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+    .cover-meta-item {}
+    .cover-meta-label {
+      font-size: var(--fs-2xs);
+      font-family: var(--font-mono);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      display: block;
+      margin-bottom: 2px;
+    }
+    .cover-meta-value {
+      font-size: var(--fs-base);
+      color: rgba(255,255,255,0.85);
+      font-family: var(--font-body);
+    }
+
+    /* ============================================================
+       GRADIENTS
+    ============================================================ */
+    .grad-preview {
+      border-radius: var(--r-2xl);
+      overflow: hidden;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-sm);
+      transition: all var(--t-base) var(--ease-out);
+    }
+    .grad-preview:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+
+    .grad-bar {
+      height: 80px;
+      width: 100%;
+    }
+    .grad-info {
+      background: var(--white);
+      padding: var(--sp-3) var(--sp-5);
+    }
+    .grad-name {
+      font-weight: var(--fw-medium);
+      font-size: var(--fs-sm);
+      color: var(--text-primary);
+      display: block;
+    }
+    .grad-token {
+      font-family: var(--font-mono);
+      font-size: var(--fs-xs);
+      color: var(--teal-deeper);
+      display: block;
+      margin-top: 2px;
+    }
+    .grad-stops {
+      font-size: 11px;
+      color: var(--text-tertiary);
+      display: block;
+      margin-top: 2px;
+    }
+
+    .grad-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: var(--sp-5);
+    }
+
+    /* Demonstração de uso dos gradientes */
+    .grad-usage-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: var(--sp-5);
+      margin-top: var(--sp-8);
+    }
+
+    /* Botão gradiente */
+    .btn-gradient {
+      background: var(--gradient-brand);
+      color: var(--white);
+      box-shadow: 0 4px 20px rgba(23,195,178,0.30), 0 4px 20px rgba(255,45,120,0.15);
+      transition: all var(--t-base) var(--ease-out);
+    }
+    .btn-gradient:hover {
+      filter: brightness(1.08);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(23,195,178,0.35), 0 4px 20px rgba(255,45,120,0.25);
+    }
+    .btn-gradient-tp {
+      background: var(--gradient-tp);
+      color: var(--white);
+      box-shadow: 0 4px 20px rgba(255,45,120,0.25);
+    }
+    .btn-gradient-tp:hover {
+      filter: brightness(1.06);
+      transform: translateY(-2px);
+    }
+
+    /* Badge gradiente */
+    .badge-gradient {
+      background: var(--gradient-brand);
+      color: var(--white);
+      font-weight: var(--fw-bold);
+    }
+
+    /* Borda gradiente via background-clip */
+    .border-gradient-wrap {
+      padding: 2px;
+      background: var(--gradient-brand);
+      border-radius: var(--r-2xl);
+      display: inline-block;
+    }
+    .border-gradient-inner {
+      background: var(--white);
+      border-radius: calc(var(--r-2xl) - 2px);
+      padding: var(--sp-4) var(--sp-6);
+    }
+
+    /* Card com header gradiente */
+    .grad-card {
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--r-2xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: all var(--t-slow) var(--ease-out);
+    }
+    .grad-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+    .grad-card-header {
+      height: 6px;
+    }
+    .grad-card-body {
+      padding: var(--sp-5) var(--sp-6);
+    }
+
+    /* Divisor gradiente */
+    .grad-divider {
+      height: 2px;
+      background: var(--gradient-brand);
+      border: none;
+      border-radius: var(--r-full);
+    }
+    .grad-divider-thin {
+      height: 1px;
+      background: var(--gradient-brand);
+      border: none;
+    }
+
+    /* Texto com gradiente */
+    .text-gradient {
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .text-gradient-tp {
+      background: var(--gradient-tp-135);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Fundo seção com gradiente suave */
+    .section-bg-gradient {
+      background: linear-gradient(160deg, var(--teal-light) 0%, var(--white) 40%, var(--pink-light) 100%);
+    }
+
+    /* Chip/tag com gradiente */
+    .grad-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--sp-2);
+      background: var(--gradient-brand);
+      color: var(--white);
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-semi);
+      padding: 4px 12px;
+      border-radius: var(--r-full);
+      letter-spacing: 0.04em;
+    }
+
+    /* Progress / indicator bar */
+    .grad-progress {
+      height: 6px;
+      border-radius: var(--r-full);
+      background: var(--gradient-brand);
+    }
+    .grad-progress-wrap {
+      height: 6px;
+      background: var(--gray-100);
+      border-radius: var(--r-full);
+      overflow: hidden;
+    }
+
+    /* Avatar ring */
+    .grad-avatar-ring {
+      padding: 2.5px;
+      background: var(--gradient-brand);
+      border-radius: 50%;
+      display: inline-flex;
+    }
+    .grad-avatar-inner {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--gray-100);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-body);
+      font-size: var(--fs-lg);
+      color: var(--text-secondary);
+      border: 2px solid white;
+    }
+
+    /* ============================================================
+       COLORS
+    ============================================================ */
+    .color-group { margin-bottom: var(--sp-10); }
+    .color-group-title {
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-semi);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: var(--sp-5);
+      padding-bottom: var(--sp-2);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+      gap: var(--sp-4);
+    }
+    .color-swatch {
+      border-radius: var(--r-xl);
+      overflow: hidden;
+      border: 1px solid var(--border-light);
+      transition: box-shadow var(--t-base) var(--ease-out), transform var(--t-base) var(--ease-out);
+      cursor: default;
+    }
+    .color-swatch:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-3px);
+    }
+    .swatch-color {
+      height: 80px;
+    }
+    .swatch-body {
+      background: var(--white);
+      padding: var(--sp-3) var(--sp-4);
+    }
+    .swatch-name {
+      font-weight: var(--fw-medium);
+      font-size: var(--fs-sm);
+      color: var(--text-primary);
+      display: block;
+    }
+    .swatch-hex {
+      font-family: var(--font-mono);
+      font-size: var(--fs-xs);
+      color: var(--teal-deeper);
+      display: block;
+      margin-top: 2px;
+    }
+    .swatch-use {
+      font-size: 11px;
+      color: var(--text-tertiary);
+      display: block;
+      margin-top: 3px;
+      line-height: 1.4;
+    }
+
+    /* Color scale strip */
+    .color-scale {
+      display: flex;
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      height: 56px;
+      margin-top: var(--sp-6);
+      border: 1px solid var(--border-light);
+    }
+    .scale-step {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      padding-bottom: var(--sp-1);
+    }
+    .scale-label {
+      font-size: 9px;
+      font-family: var(--font-mono);
+      opacity: 0.7;
+    }
+
+    /* ============================================================
+       TYPOGRAPHY
+    ============================================================ */
+    .type-scale { }
+    .type-row {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: var(--sp-8);
+      align-items: center;
+      padding: var(--sp-5) 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .type-row:last-child { border-bottom: none; }
+    .type-meta {
+      font-family: var(--font-mono);
+      font-size: var(--fs-2xs);
+      color: var(--text-tertiary);
+      line-height: 1.6;
+    }
+    .type-meta strong {
+      display: block;
+      color: var(--teal-deeper);
+      font-size: var(--fs-xs);
+      margin-bottom: 2px;
+    }
+
+    /* Type samples */
+    .ts-display { font-family: var(--font-body); font-size: 64px; font-weight: 800; line-height: 1.0; letter-spacing: -0.04em; color: var(--text-primary); }
+    .ts-h1      { font-family: var(--font-body); font-size: 52px; font-weight: 700; line-height: 1.1;  letter-spacing: -0.03em; }
+    .ts-h2      { font-family: var(--font-body); font-size: 42px; font-weight: 700; line-height: 1.15; letter-spacing: -0.025em; }
+    .ts-h3      { font-family: var(--font-body); font-size: 34px; font-weight: 600; line-height: 1.2;  letter-spacing: -0.02em; }
+    .ts-h4      { font-family: var(--font-body); font-size: 28px; font-weight: 600; line-height: 1.25; letter-spacing: -0.015em; }
+    .ts-h5      { font-family: var(--font-body);    font-size: 22px; font-weight: 600; line-height: 1.35; }
+    .ts-lead    { font-family: var(--font-body);    font-size: 18px; font-weight: 300; line-height: 1.7; color: var(--text-secondary); }
+    .ts-body    { font-family: var(--font-body);    font-size: 15px; font-weight: 400; line-height: 1.65; }
+    .ts-small   { font-family: var(--font-body);    font-size: 13px; font-weight: 400; line-height: 1.55; color: var(--text-secondary); }
+    .ts-caption { font-family: var(--font-body);    font-size: 12px; font-weight: 400; line-height: 1.5; color: var(--text-tertiary); letter-spacing: 0.01em; }
+    .ts-label   { font-family: var(--font-body);    font-size: 11px; font-weight: 700; line-height: 1; letter-spacing: 0.10em; text-transform: uppercase; color: var(--teal-deeper); }
+    .ts-mono    { font-family: var(--font-mono);    font-size: 13px; color: var(--teal-deeper); background: var(--teal-light); padding: 2px 6px; border-radius: var(--r-sm); display: inline-block; }
+
+    .font-specimens {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-6);
+      margin-bottom: var(--sp-12);
+    }
+    .font-spec {
+      background: var(--gray-50);
+      border: 1px solid var(--border-light);
+      border-radius: var(--r-2xl);
+      padding: var(--sp-10);
+    }
+    .font-spec-label {
+      font-size: var(--fs-xs);
+      font-family: var(--font-mono);
+      color: var(--teal-deeper);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: var(--sp-5);
+    }
+
+    /* ============================================================
+       SPACING
+    ============================================================ */
+    .spacing-table { width: 100%; border-collapse: collapse; }
+    .spacing-table th {
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-semi);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-tertiary);
+      text-align: left;
+      padding: var(--sp-2) var(--sp-4) var(--sp-2) 0;
+      border-bottom: 2px solid var(--border-light);
+    }
+    .spacing-table td {
+      padding: var(--sp-3) var(--sp-4) var(--sp-3) 0;
+      border-bottom: 1px solid var(--border-light);
+      vertical-align: middle;
+    }
+    .spacing-table tr:last-child td { border-bottom: none; }
+    .sp-token  { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--teal-deeper); }
+    .sp-px     { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--text-tertiary); }
+    .sp-use    { font-size: var(--fs-xs); color: var(--text-secondary); }
+    .sp-bar-wrap { padding: var(--sp-1) 0; }
+    .sp-bar {
+      height: 18px;
+      background: linear-gradient(90deg, var(--teal-light), var(--teal-mid));
+      border-radius: 0 var(--r-sm) var(--r-sm) 0;
+      border-left: 3px solid var(--teal);
+    }
+
+    /* ============================================================
+       BUTTONS
+    ============================================================ */
+    .btn-group { margin-bottom: var(--sp-8); }
+    .btn-group-title {
+      font-size: var(--fs-xs);
+      font-family: var(--font-mono);
+      color: var(--text-tertiary);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: var(--sp-4);
+    }
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sp-3);
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--sp-2);
+      font-family: var(--font-body);
+      font-weight: var(--fw-medium);
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+      transition: all var(--t-base) var(--ease-out);
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+    }
+
+    /* Sizes */
+    .btn-xs { font-size: var(--fs-xs);  padding: 5px var(--sp-3);   border-radius: var(--r-md); }
+    .btn-sm { font-size: var(--fs-sm);  padding: 7px var(--sp-4);   border-radius: var(--r-md); }
+    .btn-md { font-size: var(--fs-sm);  padding: 10px var(--sp-6);  border-radius: var(--r-lg); }
+    .btn-lg { font-size: var(--fs-base); padding: var(--sp-3) var(--sp-8);  border-radius: var(--r-lg); }
+    .btn-xl { font-size: var(--fs-md);  padding: var(--sp-4) var(--sp-10); border-radius: var(--r-xl); }
+
+    /* Variants */
+    .btn-teal {
+      background: var(--teal);
+      color: var(--white);
+      box-shadow: var(--shadow-teal);
+    }
+    .btn-teal:hover {
+      background: var(--teal-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 24px rgba(23,195,178,0.35);
+    }
+    .btn-teal:active { transform: translateY(0); }
+
+    .btn-pink {
+      background: var(--pink);
+      color: var(--white);
+      box-shadow: var(--shadow-pink);
+    }
+    .btn-pink:hover {
+      background: var(--pink-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 24px rgba(255,45,120,0.30);
+    }
+
+    .btn-navy {
+      background: var(--navy);
+      color: var(--white);
+      box-shadow: var(--shadow-navy);
+    }
+    .btn-navy:hover {
+      background: var(--navy-mid);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline-teal {
+      background: transparent;
+      color: var(--teal-deeper);
+      border: 1.5px solid var(--teal);
+    }
+    .btn-outline-teal:hover {
+      background: var(--teal-light);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline-navy {
+      background: transparent;
+      color: var(--text-primary);
+      border: 1.5px solid var(--border-mid);
+    }
+    .btn-outline-navy:hover {
+      border-color: var(--navy);
+      background: var(--gray-50);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-secondary);
+    }
+    .btn-ghost:hover { color: var(--text-primary); background: var(--gray-50); }
+
+    .btn-disabled {
+      background: var(--gray-100);
+      color: var(--text-disabled);
+      cursor: not-allowed;
+      pointer-events: none;
+      box-shadow: none;
+    }
+
+    /* ============================================================
+       BADGES
+    ============================================================ */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: var(--font-body);
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-medium);
+      padding: 3px 10px;
+      border-radius: var(--r-full);
+      line-height: 1.4;
+    }
+    .badge-teal      { background: var(--teal-light);  color: var(--teal-deeper); border: 1px solid var(--teal-mid); }
+    .badge-pink      { background: var(--pink-light);  color: var(--pink-dark);   border: 1px solid var(--pink-mid); }
+    .badge-navy      { background: var(--navy);        color: var(--white); }
+    .badge-gray      { background: var(--gray-100);    color: var(--text-secondary); border: 1px solid var(--border-light); }
+    .badge-warning   { background: #FFF8E1;            color: #A05C00; border: 1px solid #FFD580; }
+    .badge-success   { background: #E8F8F5;            color: #157A5C; border: 1px solid #A3DDD2; }
+    .badge-esgotado  { background: var(--pink); color: var(--white); font-weight: var(--fw-bold); letter-spacing: 0.06em; font-size: 11px; }
+    .badge-diamond   { background: linear-gradient(135deg, #C9D8FF, #EEF3FF); color: #1A3ABA; border: 1px solid #BEC9F0; font-weight: var(--fw-bold); }
+    .badge-gold      { background: linear-gradient(135deg, #FFEAA0, #F5C842); color: #5C3A00; border: 1px solid #DEB840; font-weight: var(--fw-bold); }
+    .badge-silver    { background: linear-gradient(135deg, #E8ECF0, #C5CDD7); color: #3A4856; border: 1px solid #B5BFCA; font-weight: var(--fw-bold); }
+
+    .badge-dot::before {
+      content: '';
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: currentColor;
+      flex-shrink: 0;
+    }
+
+    /* ============================================================
+       MARQUEE
+    ============================================================ */
+    .marquee-wrap {
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-light);
+    }
+    .marquee-bar {
+      background: var(--pink);
+      padding: var(--sp-3) 0;
+      overflow: hidden;
+    }
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 22s linear infinite;
+    }
+    .marquee-item {
+      font-family: var(--font-body);
+      font-size: var(--fs-sm);
+      font-weight: var(--fw-bold);
+      color: var(--white);
+      white-space: nowrap;
+      padding: 0 var(--sp-6);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .marquee-sep { opacity: 0.6; margin: 0 var(--sp-1); }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* Alt marquee (teal) */
+    .marquee-bar-teal { background: var(--teal); }
+    .marquee-bar-navy { background: var(--navy); }
+
+    /* ============================================================
+       CARDS — SPEAKER
+    ============================================================ */
+    .speaker-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: var(--sp-5);
+    }
+    .speaker-card {
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--r-2xl);
+      overflow: hidden;
+      transition: all var(--t-slow) var(--ease-out);
+      cursor: pointer;
+    }
+    .speaker-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--teal-mid);
+    }
+    .speaker-img {
+      width: 100%;
+      aspect-ratio: 1;
+      background: var(--gray-100);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    /* Color gradient per card variant */
+    .speaker-img-a { background: linear-gradient(135deg, #E6F9F7 0%, #B2EDE8 100%); }
+    .speaker-img-b { background: linear-gradient(135deg, #FFF0F5 0%, #FFD6E7 100%); }
+    .speaker-img-c { background: linear-gradient(135deg, #EEF1F6 0%, #DDE3EC 100%); }
+    .speaker-img-d { background: linear-gradient(135deg, #FFF8E1 0%, #FFEAA0 100%); }
+
+    .speaker-initials {
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.8);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-body);
+      font-size: var(--fs-xl);
+      color: var(--text-secondary);
+      border: 2px solid rgba(255,255,255,0.9);
+      box-shadow: var(--shadow-sm);
+    }
+    .speaker-flag {
+      position: absolute;
+      top: var(--sp-3); right: var(--sp-3);
+      font-size: 18px;
+      line-height: 1;
+      filter: drop-shadow(0 1px 3px rgba(0,0,0,0.2));
+    }
+    .speaker-body { padding: var(--sp-4) var(--sp-5); }
+    .speaker-name {
+      font-family: var(--font-body);
+      font-size: var(--fs-lg);
+      font-weight: var(--fw-bold);
+      color: var(--text-primary);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 3px;
+    }
+    .speaker-specialty {
+      font-size: var(--fs-xs);
+      color: var(--teal-deeper);
+      font-weight: var(--fw-medium);
+      margin-bottom: var(--sp-1);
+    }
+    .speaker-institution {
+      font-size: var(--fs-xs);
+      color: var(--text-tertiary);
+    }
+
+    /* ============================================================
+       CARDS — TICKET
+    ============================================================ */
+    .ticket-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--sp-6);
+    }
+    .ticket-card {
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--r-2xl);
+      padding: var(--sp-8);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      transition: all var(--t-slow) var(--ease-out);
+    }
+    .ticket-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-xl);
+    }
+    .ticket-card-top {
+      height: 4px;
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      border-radius: var(--r-2xl) var(--r-2xl) 0 0;
+    }
+    .ticket-card.tier-day   .ticket-card-top { background: var(--gray-300); }
+    .ticket-card.tier-std   .ticket-card-top { background: var(--teal); }
+    .ticket-card.tier-exp   .ticket-card-top { background: linear-gradient(90deg, var(--teal), var(--pink)); }
+
+    .ticket-card.tier-std {
+      border-color: var(--teal-mid);
+      box-shadow: var(--shadow-teal);
+    }
+    .ticket-card.tier-exp {
+      background: var(--navy);
+      border-color: transparent;
+    }
+    .ticket-card.tier-exp .ticket-days    { color: rgba(255,255,255,0.5); }
+    .ticket-card.tier-exp .ticket-name    { color: var(--white); }
+    .ticket-card.tier-exp .ticket-feature { color: rgba(255,255,255,0.7); border-color: rgba(255,255,255,0.08); }
+    .ticket-card.tier-exp .ticket-feature-check { color: var(--teal); }
+    .ticket-card.tier-exp .ticket-price   { color: var(--white); }
+    .ticket-card.tier-exp .ticket-price-label { color: rgba(255,255,255,0.5); }
+    .ticket-card.tier-exp .ticket-installments { color: rgba(255,255,255,0.45); }
+
+    .ticket-popular {
+      position: absolute;
+      top: var(--sp-5); right: var(--sp-5);
+    }
+    .ticket-days {
+      font-size: var(--fs-xs);
+      font-family: var(--font-mono);
+      color: var(--text-tertiary);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: var(--sp-2);
+      margin-top: var(--sp-4);
+    }
+    .ticket-name {
+      font-family: var(--font-body);
+      font-size: var(--fs-2xl);
+      font-weight: var(--fw-semi);
+      color: var(--text-primary);
+      margin-bottom: var(--sp-5);
+    }
+    .ticket-features {
+      list-style: none;
+      flex: 1;
+      margin-bottom: var(--sp-8);
+    }
+    .ticket-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--sp-3);
+      font-size: var(--fs-sm);
+      color: var(--text-secondary);
+      padding: var(--sp-2) 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .ticket-feature:last-child { border-bottom: none; }
+    .ticket-feature-check { color: var(--teal); flex-shrink: 0; font-size: 14px; }
+    .ticket-feature-cross { color: var(--gray-300); flex-shrink: 0; font-size: 14px; }
+    .ticket-price-label {
+      font-size: var(--fs-xs);
+      color: var(--text-tertiary);
+      font-family: var(--font-mono);
+      letter-spacing: 0.08em;
+    }
+    .ticket-price {
+      font-family: var(--font-body);
+      font-size: var(--fs-4xl);
+      font-weight: 800;
+      color: var(--text-primary);
+      line-height: 1;
+      letter-spacing: -0.03em;
+      margin: var(--sp-2) 0 var(--sp-1);
+    }
+    .ticket-installments {
+      font-size: var(--fs-xs);
+      color: var(--text-tertiary);
+      margin-bottom: var(--sp-6);
+    }
+
+    /* ============================================================
+       HERO PREVIEW
+    ============================================================ */
+    .hero-preview {
+      background: var(--navy);
+      border-radius: var(--r-3xl);
+      overflow: hidden;
+      min-height: 480px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-xl);
+    }
+    .hero-preview::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 55% at 75% 15%, rgba(23,195,178,0.20) 0%, transparent 60%),
+        radial-gradient(ellipse 35% 40% at 5%  85%, rgba(255,45,120,0.12) 0%, transparent 55%);
+    }
+    .hero-preview::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    .hero-inner {
+      position: relative; z-index: 1;
+      padding: var(--sp-16) var(--sp-16) var(--sp-12);
+    }
+    .hero-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--sp-2);
+      background: rgba(23,195,178,0.12);
+      border: 1px solid rgba(23,195,178,0.35);
+      border-radius: var(--r-full);
+      padding: 5px var(--sp-4) 5px var(--sp-3);
+      margin-bottom: var(--sp-8);
+    }
+    .hero-chip-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--teal);
+      animation: dot-pulse 2.5s ease-in-out infinite;
+    }
+    @keyframes dot-pulse {
+      0%,100% { box-shadow: 0 0 0 0 rgba(23,195,178,0.4); }
+      50%      { box-shadow: 0 0 0 5px rgba(23,195,178,0); }
+    }
+    .hero-chip-text {
+      font-size: var(--fs-xs);
+      color: var(--teal);
+      font-weight: var(--fw-medium);
+      letter-spacing: 0.05em;
+    }
+    .hero-title {
+      font-family: var(--font-body);
+      font-size: clamp(36px, 4.5vw, 64px);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      margin-bottom: var(--sp-8);
+    }
+    .hero-title em { color: var(--teal); font-style: normal; }
+    .hero-details {
+      display: flex;
+      gap: var(--sp-8);
+      flex-wrap: wrap;
+      margin-bottom: var(--sp-8);
+    }
+    .hero-detail {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-2);
+      font-size: var(--fs-sm);
+      color: rgba(255,255,255,0.65);
+    }
+    .hero-detail-icon { font-size: 14px; opacity: 0.7; }
+    .hero-cta { display: flex; gap: var(--sp-3); flex-wrap: wrap; }
+
+    /* ============================================================
+       FLAGS
+    ============================================================ */
+    .flags-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sp-4);
+    }
+    .flag-chip {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-3);
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--r-lg);
+      padding: var(--sp-3) var(--sp-4);
+      transition: all var(--t-base) var(--ease-out);
+    }
+    .flag-chip:hover {
+      border-color: var(--teal-mid);
+      box-shadow: var(--shadow-sm);
+      transform: translateY(-1px);
+    }
+    .flag-emoji { font-size: 22px; line-height: 1; }
+    .flag-info {}
+    .flag-code  { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--teal-deeper); font-weight: 500; }
+    .flag-name  { font-size: 11px; color: var(--text-tertiary); }
+
+    /* ============================================================
+       ANIMATIONS
+    ============================================================ */
+    .anim-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: var(--sp-5);
+    }
+    .anim-card {
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--r-2xl);
+      padding: var(--sp-7);
+      overflow: hidden;
+      transition: box-shadow var(--t-base);
+    }
+    .anim-card:hover { box-shadow: var(--shadow-md); }
+    .anim-label {
+      font-family: var(--font-mono);
+      font-size: var(--fs-xs);
+      color: var(--teal-deeper);
+      margin-bottom: var(--sp-5);
+      display: block;
+    }
+    .anim-stage {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--sp-5);
+      background: var(--gray-50);
+      border-radius: var(--r-lg);
+    }
+    .anim-box {
+      width: 44px; height: 44px;
+      border-radius: var(--r-lg);
+      background: linear-gradient(135deg, var(--teal-light), var(--teal-mid));
+      border: 2px solid var(--teal);
+    }
+    .anim-desc  { font-size: var(--fs-xs); color: var(--text-secondary); line-height: 1.6; }
+    .anim-props { font-family: var(--font-mono); font-size: 11px; color: var(--teal-deeper); margin-top: var(--sp-2); opacity: 0.8; }
+
+    @keyframes anim-left    { from { opacity:0; transform: translateX(-40px); }    to { opacity:1; transform: translateX(0); } }
+    @keyframes anim-right   { from { opacity:0; transform: translateX(40px); }     to { opacity:1; transform: translateX(0); } }
+    @keyframes anim-top     { from { opacity:0; transform: translateY(-30px); }    to { opacity:1; transform: translateY(0); } }
+    @keyframes anim-up      { from { opacity:0; transform: translateY(40px); filter:blur(3px); } to { opacity:1; transform: translateY(0); filter:blur(0); } }
+    @keyframes anim-fade    { from { opacity:0; } to { opacity:1; } }
+    @keyframes anim-3d      { from { opacity:0; transform: perspective(400px) rotateX(15deg) translateY(20px); } to { opacity:1; transform: perspective(400px) rotateX(0) translateY(0); } }
+    @keyframes anim-scale   { from { opacity:0; transform: scale(0.85); } to { opacity:1; transform: scale(1); } }
+
+    .anim-card:hover .anim-box { animation-play-state: running; }
+    .anim-card-left .anim-box  { animation: anim-left  0.7s var(--ease-out) both; }
+    .anim-card-right .anim-box { animation: anim-right 0.7s var(--ease-out) 0.1s both; }
+    .anim-card-top .anim-box   { animation: anim-top   0.7s var(--ease-out) 0.05s both; }
+    .anim-card-up .anim-box    { animation: anim-up    0.8s var(--ease-out) both; }
+    .anim-card-fade .anim-box  { animation: anim-fade  1s ease both; }
+    .anim-card-3d .anim-box    { animation: anim-3d    0.8s var(--ease-out) both; }
+    .anim-card-scale .anim-box { animation: anim-scale 0.6s var(--ease-out) both; }
+
+    /* ============================================================
+       GRID
+    ============================================================ */
+    .grid-demo-block { margin-bottom: var(--sp-8); }
+    .grid-demo-label {
+      font-family: var(--font-mono);
+      font-size: var(--fs-xs);
+      color: var(--teal-deeper);
+      margin-bottom: var(--sp-4);
+      display: flex;
+      align-items: center;
+      gap: var(--sp-3);
+    }
+    .grid-demo-label::before { content: ''; width: 12px; height: 1px; background: var(--teal); }
+    .grid-wrapper {
+      padding: var(--sp-5);
+      border: 1px dashed var(--border-mid);
+      border-radius: var(--r-xl);
+      background: var(--gray-25);
+    }
+    .g12 { display: grid; grid-template-columns: repeat(12, 1fr); gap: 6px; margin-bottom: 6px; }
+    .g-cell {
+      height: 28px;
+      background: var(--teal-light);
+      border: 1px solid var(--teal-mid);
+      border-radius: var(--r-xs);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 8px;
+      color: var(--teal-deeper);
+    }
+    .g-span2  { grid-column: span 2;  background: rgba(23,195,178,0.15); }
+    .g-span3  { grid-column: span 3;  background: rgba(23,195,178,0.18); }
+    .g-span4  { grid-column: span 4;  background: rgba(23,195,178,0.22); }
+    .g-span6  { grid-column: span 6;  background: rgba(23,195,178,0.26); }
+    .g-span8  { grid-column: span 8;  background: rgba(23,195,178,0.30); }
+    .g-span12 { grid-column: span 12; background: rgba(23,195,178,0.12); }
+    .g-span4-pink { grid-column: span 4; background: var(--pink-light); border-color: var(--pink-mid); color: var(--pink-dark); }
+
+    .bp-chips { display: flex; gap: var(--sp-3); flex-wrap: wrap; margin-top: var(--sp-6); }
+    .bp-chip {
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--r-lg);
+      padding: var(--sp-4) var(--sp-5);
+      font-size: var(--fs-xs);
+    }
+    .bp-name { font-family: var(--font-mono); color: var(--teal-deeper); display: block; margin-bottom: 2px; }
+    .bp-range { color: var(--text-secondary); }
+
+    /* ============================================================
+       SHADOWS DISPLAY
+    ============================================================ */
+    .shadow-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: var(--sp-6);
+    }
+    .shadow-card {
+      background: var(--white);
+      border-radius: var(--r-xl);
+      padding: var(--sp-8) var(--sp-5);
+      text-align: center;
+    }
+    .shadow-token { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--teal-deeper); display: block; margin-top: var(--sp-4); }
+    .shadow-val   { font-size: 11px; color: var(--text-tertiary); display: block; margin-top: 2px; }
+
+    /* ============================================================
+       SPONSORS
+    ============================================================ */
+    .sponsor-tier { margin-bottom: var(--sp-10); }
+    .sponsor-tier-header {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-4);
+      margin-bottom: var(--sp-5);
+    }
+    .sponsor-tier-line { flex: 1; height: 1px; background: var(--border-light); }
+    .sponsor-logos { display: flex; flex-wrap: wrap; gap: var(--sp-4); }
+    .sponsor-logo {
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--r-xl);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--t-base) var(--ease-out);
+      cursor: default;
+    }
+    .sponsor-logo:hover {
+      box-shadow: var(--shadow-md);
+      border-color: var(--teal-mid);
+      transform: translateY(-2px);
+    }
+    .sl-diamond { width: 200px; height: 80px; }
+    .sl-gold    { width: 155px; height: 66px; }
+    .sl-silver  { width: 125px; height: 54px; }
+    .sl-inst    { width: 105px; height: 46px; }
+    .sponsor-name-text {
+      font-family: var(--font-body);
+      font-style: italic;
+      color: var(--text-tertiary);
+    }
+    .sn-lg { font-size: var(--fs-md); }
+    .sn-md { font-size: var(--fs-base); }
+    .sn-sm { font-size: var(--fs-sm); }
+    .sn-xs { font-size: var(--fs-xs); }
+
+    /* ============================================================
+       DIVIDER
+    ============================================================ */
+    .ds-divider {
+      height: 1px;
+      background: var(--border-light);
+      margin: var(--sp-12) 0;
+    }
+    .ds-divider-teal {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--teal), transparent);
+      margin: var(--sp-10) 0;
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    .ds-footer {
+      background: var(--navy);
+      padding: var(--sp-16) var(--sp-16);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--sp-6);
+    }
+    .footer-brand {
+      font-family: var(--font-body);
+      font-size: var(--fs-lg);
+      color: rgba(255,255,255,0.8);
+    }
+    .footer-brand em { color: var(--teal); }
+    .footer-meta {
+      font-family: var(--font-mono);
+      font-size: var(--fs-xs);
+      color: rgba(255,255,255,0.35);
+    }
+    .footer-version {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--sp-2);
+      border: 1px solid rgba(23,195,178,0.3);
+      border-radius: var(--r-full);
+      padding: 4px var(--sp-4);
+      font-family: var(--font-mono);
+      font-size: var(--fs-xs);
+      color: var(--teal);
+    }
+
+    /* ============================================================
+       MISC UTILITIES
+    ============================================================ */
+    .token-table { width: 100%; border-collapse: collapse; }
+    .token-table th {
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-semi);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-tertiary);
+      text-align: left;
+      padding: var(--sp-2) var(--sp-4) var(--sp-2) 0;
+      border-bottom: 2px solid var(--border-light);
+    }
+    .token-table td {
+      padding: var(--sp-3) var(--sp-4) var(--sp-3) 0;
+      border-bottom: 1px solid var(--border-light);
+      vertical-align: middle;
+      font-size: var(--fs-sm);
+    }
+    .token-table tr:last-child td { border-bottom: none; }
+    .tt-token { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--teal-deeper); }
+    .tt-value { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--text-tertiary); }
+    .tt-use   { color: var(--text-secondary); }
+    .color-dot {
+      display: inline-block;
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      vertical-align: middle;
+      margin-right: 6px;
+      border: 1px solid var(--border-light);
+    }
+  </style>
+</head>
+<body>
+
+<div class="layout">
+
+  <!-- ============================================================
+       SIDEBAR
+  ============================================================ -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-logo">
+        <div class="sidebar-logo-mark">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M9 16.5C9 16.5 3 12.5 3 8C3 5.2 5.8 3 9 3C12.2 3 15 5.2 15 8C15 12.5 9 16.5 9 16.5Z" fill="white" opacity="0.9"/>
+            <path d="M9 3V16.5M6.5 7C6.5 7 4.5 8.5 4 10.5M11.5 7C11.5 7 13.5 8.5 14 10.5" stroke="rgba(23,195,178,0.6)" stroke-width="0.8" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="sidebar-wordmark">We<span>Cann</span></span>
+      </div>
+      <div class="sidebar-subtitle">Design System · v1.0</div>
+    </div>
+
+    <nav>
+      <div class="nav-section">
+        <div class="nav-section-label">Fundação</div>
+        <a href="#cores" class="nav-link">Paleta de Cores</a>
+        <a href="#gradientes" class="nav-link">Gradientes</a>
+        <a href="#tipografia" class="nav-link">Tipografia</a>
+        <a href="#espacamento" class="nav-link">Espaçamento</a>
+        <a href="#bordas" class="nav-link">Bordas & Raios</a>
+        <a href="#sombras" class="nav-link">Sombras & Elevação</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-label">Componentes</div>
+        <a href="#botoes" class="nav-link">Botões</a>
+        <a href="#badges" class="nav-link">Badges & Tags</a>
+        <a href="#marquee" class="nav-link">Banner Marquee</a>
+        <a href="#speakers" class="nav-link">Cards Palestrantes</a>
+        <a href="#tickets" class="nav-link">Cards Ingressos</a>
+        <a href="#bandeiras" class="nav-link">Bandeiras</a>
+        <a href="#sponsors" class="nav-link">Patrocinadores</a>
+        <a href="#icones" class="nav-link">Ícones</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-label">Padrões</div>
+        <a href="#hero" class="nav-link">Seção Hero</a>
+        <a href="#grid" class="nav-link">Grid & Layout</a>
+        <a href="#animacoes" class="nav-link">Animações</a>
+      </div>
+    </nav>
+  </aside>
+
+  <!-- ============================================================
+       MAIN
+  ============================================================ -->
+  <main class="main">
+
+    <!-- COVER -->
+    <section class="cover">
+      <div class="cover-inner">
+        <div class="cover-badge">Design System · Documento de Referência Visual</div>
+        <h1 class="cover-title">
+          WeCann<br>
+          <em>Summit</em>
+        </h1>
+        <div class="cover-meta">
+          <div class="cover-meta-item">
+            <span class="cover-meta-label">Versão</span>
+            <span class="cover-meta-value">1.0.0</span>
+          </div>
+          <div class="cover-meta-item">
+            <span class="cover-meta-label">Tema</span>
+            <span class="cover-meta-value">Light · Médico</span>
+          </div>
+          <div class="cover-meta-item">
+            <span class="cover-meta-label">Público</span>
+            <span class="cover-meta-value">Médicos e Profissionais de Saúde</span>
+          </div>
+          <div class="cover-meta-item">
+            <span class="cover-meta-label">Evento</span>
+            <span class="cover-meta-value">Oct 2025 · Campinas, SP</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================================================
+         CORES
+    =========================================================== -->
+    <section class="ds-section" id="cores">
+      <div class="section-eyebrow">01 · Fundação</div>
+      <h2 class="section-title">Paleta de <em>Cores</em></h2>
+      <p class="section-desc">Sistema cromático formal e médico. Teal como cor primária de ação e confiança; pink/magenta para urgência e CTAs secundários; navy para texto e autoridade; escalas neutras de suporte.</p>
+
+      <!-- Primary Brand -->
+      <div class="color-group">
+        <div class="color-group-title">Primárias da Marca</div>
+        <div class="color-grid">
+          <div class="color-swatch">
+            <div class="swatch-color" style="background:#17C3B2;"></div>
+            <div class="swatch-body">
+              <span class="swatch-name">Teal</span>
+              <span class="swatch-hex">#17C3B2</span>
+              <span class="swatch-use">Cor primária · botões · links · destaques</span>
+            </div>
+          </div>
+          <div class="color-swatch">
+            <div class="swatch-color" style="background:#0EA99A;"></div>
+            <div class="swatch-body">
+              <span class="swatch-name">Teal Dark</span>
+              <span class="swatch-hex">#0EA99A</span>
+              <span class="swatch-use">Hover states · texto em teal</span>
+            </div>
+          </div>
+          <div class="color-swatch">
+            <div class="swatch-color" style="background:#0A877B;"></div>
+            <div class="swatch-body">
+              <span class="swatch-name">Teal Deeper</span>
+              <span class="swatch-hex">#0A877B</span>
+              <span class="swatch-use">Texto teal · active states</span>
+            </div>
+          </div>
+          <div class="color-swatch">
+            <div class="swatch-color" style="background:#FF2D78;"></div>
+            <div class="swatch-body">
+              <span class="swatch-name">Pink</span>
+              <span class="swatch-hex">#FF2D78</span>
+              <span class="swatch-use">CTA urgente · "Esgotado" · alertas</span>
+            </div>
+          </div>
+          <div class="color-swatch">
+            <div class="swatch-color" style="background:#E0205E;"></div>
+            <div class="swatch-body">
+              <span class="swatch-name">Pink Dark</span>
+              <span class="swatch-hex">#E0205E</span>
+              <span class="swatch-use">Hover do botão pink</span>
+            </div>
+          </div>
+          <div class="color-swatch">
+            <div class="swatch-color" style="background:#0D1B2A;"></div>
+            <div class="swatch-body">
+              <span class="swatch-name">Navy</span>
+              <span class="swatch-hex">#0D1B2A</span>
+              <span class="swatch-use">Texto primário · hero bg · navbar</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Teal scale -->
+        <div style="margin-top: var(--sp-6);">
+          <div style="font-size: var(--fs-xs); color: var(--text-tertiary); font-family: var(--font-mono); margin-bottom: var(--sp-3);">Escala Teal</div>
+          <div class="color-scale">
+            <div class="scale-step" style="background:#E6F9F7;"><span class="scale-label" style="color:#0A877B">50</span></div>
+            <div class="scale-step" style="background:#B2EDE8;"><span class="scale-label" style="color:#0A877B">100</span></div>
+            <div class="scale-step" style="background:#7DDFD7;"><span class="scale-label" style="color:#0A877B">200</span></div>
+            <div class="scale-step" style="background:#3DCFC5;"><span class="scale-label" style="color:white">300</span></div>
+            <div class="scale-step" style="background:#17C3B2;"><span class="scale-label" style="color:white">400</span></div>
+            <div class="scale-step" style="background:#0EA99A;"><span class="scale-label" style="color:white">500</span></div>
+            <div class="scale-step" style="background:#0A877B;"><span class="scale-label" style="color:white">600</span></div>
+            <div class="scale-step" style="background:#086B62;"><span class="scale-label" style="color:white">700</span></div>
+            <div class="scale-step" style="background:#054F48;"><span class="scale-label" style="color:white">800</span></div>
+            <div class="scale-step" style="background:#033430;"><span class="scale-label" style="color:white">900</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Surfaces -->
+      <div class="color-group">
+        <div class="color-group-title">Backgrounds & Superfícies</div>
+        <div class="color-grid">
+          <div class="color-swatch">
+            <div class="swatch-color" style="background:#FFFFFF; border-bottom: 1px solid #E2E7EF;"></div>
+            <div class="swatch-body"><span class="swatch-name">White</span><span class="swatch-hex">#FFFFFF</span><span class="swatch-use">Background principal da página</span></div>
+          </div>
+          <div class="color-swatch">
+            <div class="swatch-color" style="background:#FAFBFC; border-bottom: 1px solid #E2E7EF;"></div>
+            <div class="swatch-body"><span class="swatch-name">Gray 25</span><span class="swatch-hex">#FAFBFC</span><span class="swatch-use">Seções alternadas sutis</span></div>
+          </div>
+          <div class="color-swatch">
+            <div class="swatch-color" style="background:#F5F7FA; border-bottom: 1px solid #E2E7EF;"></div>
+            <div class="swatch-body"><span class="swatch-name">Gray 50</span><span class="swatch-hex">#F5F7FA</span><span class="swatch-use">Cards e containers</span></div>
+          </div>
+          <div class="color-swatch">
+            <div class="swatch-color" style="background:#EEF1F6; border-bottom: 1px solid #E2E7EF;"></div>
+            <div class="swatch-body"><span class="swatch-name">Gray 100</span><span class="swatch-hex">#EEF1F6</span><span class="swatch-use">Dividers, disabled states</span></div>
+          </div>
+          <div class="color-swatch">
+            <div class="swatch-color" style="background:#E6F9F7; border-bottom: 1px solid #B2EDE8;"></div>
+            <div class="swatch-body"><span class="swatch-name">Teal Light</span><span class="swatch-hex">#E6F9F7</span><span class="swatch-use">Badge teal, highlights</span></div>
+          </div>
+          <div class="color-swatch">
+            <div class="swatch-color" style="background:#FFF0F5; border-bottom: 1px solid #FFD6E7;"></div>
+            <div class="swatch-body"><span class="swatch-name">Pink Light</span><span class="swatch-hex">#FFF0F5</span><span class="swatch-use">Badge pink, alertas suaves</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Text -->
+      <div class="color-group">
+        <div class="color-group-title">Hierarquia de Texto</div>
+        <table class="token-table">
+          <thead>
+            <tr><th>Token</th><th>Valor</th><th>Uso</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="tt-token">--text-primary</td><td class="tt-value"><span class="color-dot" style="background:#0D1B2A;"></span>#0D1B2A</td><td class="tt-use">Títulos, texto de corpo principal</td></tr>
+            <tr><td class="tt-token">--text-secondary</td><td class="tt-value"><span class="color-dot" style="background:#4A5E72;"></span>#4A5E72</td><td class="tt-use">Subtítulos, descrições, metadados</td></tr>
+            <tr><td class="tt-token">--text-tertiary</td><td class="tt-value"><span class="color-dot" style="background:#6B7E92;"></span>#6B7E92</td><td class="tt-use">Labels, captions, placeholders</td></tr>
+            <tr><td class="tt-token">--text-disabled</td><td class="tt-value"><span class="color-dot" style="background:#9BAABB;"></span>#9BAABB</td><td class="tt-use">Estados desabilitados</td></tr>
+            <tr><td class="tt-token">--text-teal</td><td class="tt-value"><span class="color-dot" style="background:#0A877B;"></span>#0A877B</td><td class="tt-use">Links, destaques positivos, labels teal</td></tr>
+            <tr><td class="tt-token">--text-pink</td><td class="tt-value"><span class="color-dot" style="background:#C41454;"></span>#C41454</td><td class="tt-use">Alertas críticos, texto urgente</td></tr>
+            <tr><td class="tt-token">--text-on-dark</td><td class="tt-value"><span class="color-dot" style="background:#FFFFFF; border-color:#E2E7EF;"></span>#FFFFFF</td><td class="tt-use">Texto sobre fundos navy/escuros</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===========================================================
+         GRADIENTES
+    =========================================================== -->
+    <section class="ds-section" id="gradientes">
+      <div class="section-eyebrow">02 · Fundação</div>
+      <h2 class="section-title">Sistema de <em>Gradientes</em></h2>
+      <p class="section-desc">O gradiente de marca — Teal → Cyan → Violeta → Pink — é o elemento visual mais distintivo do WeCann Summit. Usado em botões, divisores, bordas, textos de destaque e fundos de seção.</p>
+
+      <!-- GRADIENTE PRINCIPAL em destaque -->
+      <div style="border-radius: var(--r-3xl); overflow: hidden; border: 1px solid var(--border-light); box-shadow: var(--shadow-md); margin-bottom: var(--sp-10);">
+        <div style="height: 120px; background: var(--gradient-brand); position: relative;">
+          <!-- color stops overlay -->
+          <div style="position:absolute; inset:0; display:flex; align-items:flex-end; padding: 0 var(--sp-6) var(--sp-4); gap:0;">
+            <div style="position:absolute; left:0%; top:0; height:100%; width:1px; background:rgba(255,255,255,0.2);"></div>
+            <div style="position:absolute; left:30%; top:0; height:100%; width:1px; background:rgba(255,255,255,0.2);"></div>
+            <div style="position:absolute; left:65%; top:0; height:100%; width:1px; background:rgba(255,255,255,0.2);"></div>
+            <div style="position:absolute; left:100%; top:0; height:100%; width:1px; background:rgba(255,255,255,0.2);"></div>
+          </div>
+        </div>
+        <div style="background: var(--white); padding: var(--sp-6) var(--sp-8); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:var(--sp-4);">
+          <div>
+            <span style="font-weight:var(--fw-semi); font-size:var(--fs-base); color:var(--text-primary); display:block;">Gradiente Principal · Brand Gradient</span>
+            <code style="font-family:var(--font-mono); font-size:var(--fs-xs); color:var(--teal-deeper); display:block; margin-top:3px;">--gradient-brand</code>
+          </div>
+          <div style="display:flex; gap:var(--sp-5); align-items:center;">
+            <div style="text-align:center;">
+              <div style="width:28px;height:28px;border-radius:50%;background:#17C3B2;border:2px solid white;box-shadow:var(--shadow-sm);margin:0 auto 4px;"></div>
+              <span style="font-family:var(--font-mono);font-size:10px;color:var(--text-tertiary);">#17C3B2<br>0%</span>
+            </div>
+            <div style="width:32px;height:1px;background:var(--border-mid);"></div>
+            <div style="text-align:center;">
+              <div style="width:28px;height:28px;border-radius:50%;background:#00CFFF;border:2px solid white;box-shadow:var(--shadow-sm);margin:0 auto 4px;"></div>
+              <span style="font-family:var(--font-mono);font-size:10px;color:var(--text-tertiary);">#00CFFF<br>30%</span>
+            </div>
+            <div style="width:32px;height:1px;background:var(--border-mid);"></div>
+            <div style="text-align:center;">
+              <div style="width:28px;height:28px;border-radius:50%;background:#9B3DC8;border:2px solid white;box-shadow:var(--shadow-sm);margin:0 auto 4px;"></div>
+              <span style="font-family:var(--font-mono);font-size:10px;color:var(--text-tertiary);">#9B3DC8<br>65%</span>
+            </div>
+            <div style="width:32px;height:1px;background:var(--border-mid);"></div>
+            <div style="text-align:center;">
+              <div style="width:28px;height:28px;border-radius:50%;background:#FF2D78;border:2px solid white;box-shadow:var(--shadow-sm);margin:0 auto 4px;"></div>
+              <span style="font-family:var(--font-mono);font-size:10px;color:var(--text-tertiary);">#FF2D78<br>100%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- VARIAÇÕES DE ÂNGULO -->
+      <div class="btn-group-title">Variações de Ângulo</div>
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:var(--sp-4); margin-bottom:var(--sp-10);">
+        <div class="grad-preview">
+          <div class="grad-bar" style="background: linear-gradient(90deg, #17C3B2 0%, #00CFFF 30%, #9B3DC8 65%, #FF2D78 100%);"></div>
+          <div class="grad-info">
+            <span class="grad-name">Horizontal 90°</span>
+            <span class="grad-token">--gradient-brand</span>
+            <span class="grad-stops">Faixas, banners, divisores</span>
+          </div>
+        </div>
+        <div class="grad-preview">
+          <div class="grad-bar" style="background: linear-gradient(135deg, #17C3B2 0%, #00CFFF 30%, #9B3DC8 65%, #FF2D78 100%);"></div>
+          <div class="grad-info">
+            <span class="grad-name">Diagonal 135°</span>
+            <span class="grad-token">--gradient-brand-135</span>
+            <span class="grad-stops">Cards, backgrounds, botões</span>
+          </div>
+        </div>
+        <div class="grad-preview">
+          <div class="grad-bar" style="background: linear-gradient(45deg, #17C3B2 0%, #00CFFF 30%, #9B3DC8 65%, #FF2D78 100%);"></div>
+          <div class="grad-info">
+            <span class="grad-name">Diagonal 45°</span>
+            <span class="grad-token">--gradient-brand-45</span>
+            <span class="grad-stops">Ícones, elementos pequenos</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- BICOLORES -->
+      <div class="btn-group-title">Versões Bicolores (Simplificadas)</div>
+      <div class="grad-grid" style="margin-bottom:var(--sp-10);">
+        <div class="grad-preview">
+          <div class="grad-bar" style="background: linear-gradient(90deg, #17C3B2, #FF2D78);"></div>
+          <div class="grad-info">
+            <span class="grad-name">Teal → Pink 90°</span>
+            <span class="grad-token">--gradient-tp</span>
+            <span class="grad-stops">Botões, chips, progress bars</span>
+          </div>
+        </div>
+        <div class="grad-preview">
+          <div class="grad-bar" style="background: linear-gradient(135deg, #17C3B2, #FF2D78);"></div>
+          <div class="grad-info">
+            <span class="grad-name">Teal → Pink 135°</span>
+            <span class="grad-token">--gradient-tp-135</span>
+            <span class="grad-stops">Texto gradient, ícones</span>
+          </div>
+        </div>
+        <div class="grad-preview">
+          <div class="grad-bar" style="background: linear-gradient(135deg, #17C3B2, #0A877B);"></div>
+          <div class="grad-info">
+            <span class="grad-name">Teal Escuro</span>
+            <span class="grad-token">--gradient-teal</span>
+            <span class="grad-stops">Botão primário, estados ativos</span>
+          </div>
+        </div>
+        <div class="grad-preview">
+          <div class="grad-bar" style="background: linear-gradient(135deg, #FF2D78, #C41454);"></div>
+          <div class="grad-info">
+            <span class="grad-name">Pink Escuro</span>
+            <span class="grad-token">--gradient-pink</span>
+            <span class="grad-stops">Botão urgência, alertas</span>
+          </div>
+        </div>
+        <div class="grad-preview">
+          <div class="grad-bar" style="background: linear-gradient(135deg, #0D1B2A, #0A877B);"></div>
+          <div class="grad-info">
+            <span class="grad-name">Navy → Teal</span>
+            <span class="grad-token">--gradient-navy-teal</span>
+            <span class="grad-stops">Hero sections, fundos escuros</span>
+          </div>
+        </div>
+        <div class="grad-preview">
+          <div class="grad-bar" style="background: linear-gradient(135deg, #0D1B2A, #1A2E42);"></div>
+          <div class="grad-info">
+            <span class="grad-name">Navy Sólido</span>
+            <span class="grad-token">--gradient-navy</span>
+            <span class="grad-stops">Navbar, footer, sidebars</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- VERSÕES SUAVES (Light) -->
+      <div class="btn-group-title">Versões Suaves (Light)</div>
+      <div class="grad-grid" style="margin-bottom:var(--sp-10);">
+        <div class="grad-preview">
+          <div class="grad-bar" style="background: linear-gradient(135deg, #E6F9F7, #B2EDE8);"></div>
+          <div class="grad-info">
+            <span class="grad-name">Teal Suave</span>
+            <span class="grad-token">--gradient-teal-light</span>
+            <span class="grad-stops">Cards de destaque, avatares</span>
+          </div>
+        </div>
+        <div class="grad-preview">
+          <div class="grad-bar" style="background: linear-gradient(135deg, #FFF0F5, #FFB3CC);"></div>
+          <div class="grad-info">
+            <span class="grad-name">Pink Suave</span>
+            <span class="grad-token">--gradient-pink-light</span>
+            <span class="grad-stops">Alertas suaves, badges</span>
+          </div>
+        </div>
+        <div class="grad-preview">
+          <div class="grad-bar" style="background: linear-gradient(160deg, #E6F9F7 0%, #FFFFFF 40%, #FFF0F5 100%);"></div>
+          <div class="grad-info">
+            <span class="grad-name">Fundo Seção</span>
+            <span class="grad-token">section-bg-gradient</span>
+            <span class="grad-stops">Seções alternadas especiais</span>
+          </div>
+        </div>
+        <div class="grad-preview">
+          <div class="grad-bar" style="background: radial-gradient(ellipse 80% 80% at 50% 50%, rgba(23,195,178,0.18) 0%, transparent 70%), #FFFFFF;"></div>
+          <div class="grad-info">
+            <span class="grad-name">Radial Teal</span>
+            <span class="grad-token">--gradient-radial-teal</span>
+            <span class="grad-stops">Spotlight, hover de card</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXEMPLOS DE USO -->
+      <div class="btn-group-title">Exemplos de Uso</div>
+      <div class="grad-usage-grid">
+
+        <!-- Botão gradiente -->
+        <div style="background:var(--gray-50);border:1px solid var(--border-light);border-radius:var(--r-2xl);padding:var(--sp-6);display:flex;flex-direction:column;gap:var(--sp-4);">
+          <span style="font-size:var(--fs-xs);color:var(--text-tertiary);font-family:var(--font-mono);">Botão · btn-gradient</span>
+          <button class="btn btn-gradient btn-md" style="border-radius:var(--r-lg);">Garantir Ingresso</button>
+          <button class="btn btn-gradient-tp btn-md" style="border-radius:var(--r-lg);">CTA Secundário</button>
+        </div>
+
+        <!-- Texto gradiente -->
+        <div style="background:var(--gray-50);border:1px solid var(--border-light);border-radius:var(--r-2xl);padding:var(--sp-6);display:flex;flex-direction:column;gap:var(--sp-4);justify-content:center;">
+          <span style="font-size:var(--fs-xs);color:var(--text-tertiary);font-family:var(--font-mono);">Texto · text-gradient</span>
+          <div style="font-family:var(--font-body);font-size:var(--fs-3xl);font-weight:500;line-height:1.1;letter-spacing:-0.02em;" class="text-gradient">WeCann<br>Summit</div>
+          <div style="font-family:var(--font-body);font-size:var(--fs-xl);font-weight:500;" class="text-gradient-tp">2025</div>
+        </div>
+
+        <!-- Borda gradiente -->
+        <div style="background:var(--gray-50);border:1px solid var(--border-light);border-radius:var(--r-2xl);padding:var(--sp-6);display:flex;flex-direction:column;gap:var(--sp-4);align-items:flex-start;">
+          <span style="font-size:var(--fs-xs);color:var(--text-tertiary);font-family:var(--font-mono);">Borda · border-gradient-wrap</span>
+          <div class="border-gradient-wrap">
+            <div class="border-gradient-inner">
+              <div style="font-size:var(--fs-sm);font-weight:var(--fw-medium);color:var(--text-primary);">Card em destaque</div>
+              <div style="font-size:var(--fs-xs);color:var(--text-tertiary);margin-top:3px;">Borda de 2px gradiente</div>
+            </div>
+          </div>
+          <div style="padding:2px;background:var(--gradient-tp-135);border-radius:var(--r-full);display:inline-block;">
+            <div style="background:white;border-radius:9999px;padding:4px 14px;font-size:var(--fs-xs);font-weight:var(--fw-medium);">Badge outline</div>
+          </div>
+        </div>
+
+        <!-- Header de card -->
+        <div style="background:var(--gray-50);border:1px solid var(--border-light);border-radius:var(--r-2xl);padding:var(--sp-6);display:flex;flex-direction:column;gap:var(--sp-4);">
+          <span style="font-size:var(--fs-xs);color:var(--text-tertiary);font-family:var(--font-mono);">Card · grad-card-header</span>
+          <div class="grad-card" style="max-width:200px;">
+            <div class="grad-card-header" style="background:var(--gradient-brand);"></div>
+            <div class="grad-card-body">
+              <div style="font-family:var(--font-body);font-size:var(--fs-lg);font-weight:500;color:var(--text-primary);">Experience</div>
+              <div style="font-size:var(--fs-xs);color:var(--text-tertiary);margin-top:2px;">Ingresso Premium</div>
+              <div style="font-family:var(--font-body);font-size:var(--fs-xl);font-weight:600;color:var(--text-primary);margin-top:var(--sp-3);">R$2.897</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Divisor gradiente -->
+        <div style="background:var(--gray-50);border:1px solid var(--border-light);border-radius:var(--r-2xl);padding:var(--sp-6);display:flex;flex-direction:column;gap:var(--sp-5);">
+          <span style="font-size:var(--fs-xs);color:var(--text-tertiary);font-family:var(--font-mono);">Divisores · grad-divider</span>
+          <div>
+            <div style="font-size:var(--fs-xs);color:var(--text-tertiary);margin-bottom:var(--sp-3);">2px · espesso</div>
+            <div class="grad-divider"></div>
+          </div>
+          <div>
+            <div style="font-size:var(--fs-xs);color:var(--text-tertiary);margin-bottom:var(--sp-3);">1px · fino</div>
+            <div class="grad-divider-thin"></div>
+          </div>
+          <div>
+            <div style="font-size:var(--fs-xs);color:var(--text-tertiary);margin-bottom:var(--sp-3);">fade lateral</div>
+            <div style="height:1px;background:linear-gradient(90deg, transparent, #17C3B2 30%, #FF2D78 70%, transparent);"></div>
+          </div>
+        </div>
+
+        <!-- Progress bar -->
+        <div style="background:var(--gray-50);border:1px solid var(--border-light);border-radius:var(--r-2xl);padding:var(--sp-6);display:flex;flex-direction:column;gap:var(--sp-4);">
+          <span style="font-size:var(--fs-xs);color:var(--text-tertiary);font-family:var(--font-mono);">Progress · grad-progress</span>
+          <div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
+              <span style="font-size:var(--fs-xs);color:var(--text-secondary);">Vagas preenchidas</span>
+              <span style="font-size:var(--fs-xs);font-weight:var(--fw-semi);color:var(--teal-deeper);">87%</span>
+            </div>
+            <div class="grad-progress-wrap">
+              <div class="grad-progress" style="width:87%;"></div>
+            </div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
+              <span style="font-size:var(--fs-xs);color:var(--text-secondary);">Experience</span>
+              <span style="font-size:var(--fs-xs);font-weight:var(--fw-semi);color:var(--pink-dark);">100%</span>
+            </div>
+            <div class="grad-progress-wrap">
+              <div class="grad-progress" style="width:100%;background:var(--gradient-pink);"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Avatar ring -->
+        <div style="background:var(--gray-50);border:1px solid var(--border-light);border-radius:var(--r-2xl);padding:var(--sp-6);display:flex;flex-direction:column;gap:var(--sp-4);">
+          <span style="font-size:var(--fs-xs);color:var(--text-tertiary);font-family:var(--font-mono);">Avatar · grad-avatar-ring</span>
+          <div style="display:flex;gap:var(--sp-4);align-items:center;">
+            <div class="grad-avatar-ring">
+              <div class="grad-avatar-inner">AS</div>
+            </div>
+            <div class="grad-avatar-ring">
+              <div class="grad-avatar-inner">JT</div>
+            </div>
+            <div class="grad-avatar-ring">
+              <div class="grad-avatar-inner">KM</div>
+            </div>
+          </div>
+          <span style="font-size:var(--fs-xs);color:var(--text-tertiary);">Anel de 2.5px com gradiente para palestrantes em destaque</span>
+        </div>
+
+        <!-- Chip / Badge gradiente -->
+        <div style="background:var(--gray-50);border:1px solid var(--border-light);border-radius:var(--r-2xl);padding:var(--sp-6);display:flex;flex-direction:column;gap:var(--sp-4);align-items:flex-start;">
+          <span style="font-size:var(--fs-xs);color:var(--text-tertiary);font-family:var(--font-mono);">Chip · badge-gradient</span>
+          <span class="grad-chip">✦ Experience Pass</span>
+          <span class="grad-chip">🌍 Internacional</span>
+          <span class="badge badge-gradient" style="background:var(--gradient-brand);color:white;font-weight:700;">◆ Diamond Sponsor</span>
+        </div>
+
+        <!-- Fundo de seção -->
+        <div style="border:1px solid var(--border-light);border-radius:var(--r-2xl);overflow:hidden;">
+          <div class="section-bg-gradient" style="padding:var(--sp-6);min-height:120px;display:flex;flex-direction:column;justify-content:center;">
+            <span style="font-size:var(--fs-xs);color:var(--text-tertiary);font-family:var(--font-mono);margin-bottom:var(--sp-3);">section-bg-gradient</span>
+            <div style="font-family:var(--font-body);font-size:var(--fs-lg);color:var(--text-primary);font-weight:500;">Seção Especial</div>
+            <div style="font-size:var(--fs-xs);color:var(--text-secondary);margin-top:3px;">Fundo teal suave → branco → pink suave</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- TOKENS COMPLETOS -->
+      <div class="ds-divider-teal" style="margin-top:var(--sp-12);"></div>
+      <div class="btn-group-title">Todos os Tokens</div>
+      <table class="token-table">
+        <thead>
+          <tr><th>Token</th><th style="width:50px;">Preview</th><th>Valor CSS</th><th>Uso</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="tt-token">--gradient-brand</td>
+            <td><div style="width:40px;height:18px;border-radius:3px;background:var(--gradient-brand);"></div></td>
+            <td class="tt-value">90deg: #17C3B2 → #00CFFF → #9B3DC8 → #FF2D78</td>
+            <td class="tt-use">Gradiente principal 4 cores</td>
+          </tr>
+          <tr>
+            <td class="tt-token">--gradient-brand-135</td>
+            <td><div style="width:40px;height:18px;border-radius:3px;background:var(--gradient-brand-135);"></div></td>
+            <td class="tt-value">135deg: #17C3B2 → ... → #FF2D78</td>
+            <td class="tt-use">Cards, backgrounds</td>
+          </tr>
+          <tr>
+            <td class="tt-token">--gradient-tp</td>
+            <td><div style="width:40px;height:18px;border-radius:3px;background:var(--gradient-tp);"></div></td>
+            <td class="tt-value">90deg: #17C3B2 → #FF2D78</td>
+            <td class="tt-use">Botões, chips, progress</td>
+          </tr>
+          <tr>
+            <td class="tt-token">--gradient-tp-135</td>
+            <td><div style="width:40px;height:18px;border-radius:3px;background:var(--gradient-tp-135);"></div></td>
+            <td class="tt-value">135deg: #17C3B2 → #FF2D78</td>
+            <td class="tt-use">Texto gradiente, ícones</td>
+          </tr>
+          <tr>
+            <td class="tt-token">--gradient-teal</td>
+            <td><div style="width:40px;height:18px;border-radius:3px;background:var(--gradient-teal);"></div></td>
+            <td class="tt-value">135deg: #17C3B2 → #0A877B</td>
+            <td class="tt-use">Botão primário hover</td>
+          </tr>
+          <tr>
+            <td class="tt-token">--gradient-pink</td>
+            <td><div style="width:40px;height:18px;border-radius:3px;background:var(--gradient-pink);"></div></td>
+            <td class="tt-value">135deg: #FF2D78 → #C41454</td>
+            <td class="tt-use">Botão urgência hover</td>
+          </tr>
+          <tr>
+            <td class="tt-token">--gradient-navy-teal</td>
+            <td><div style="width:40px;height:18px;border-radius:3px;background:var(--gradient-navy-teal);"></div></td>
+            <td class="tt-value">135deg: #0D1B2A → #0A877B</td>
+            <td class="tt-use">Hero sections</td>
+          </tr>
+          <tr>
+            <td class="tt-token">--gradient-teal-light</td>
+            <td><div style="width:40px;height:18px;border-radius:3px;background:var(--gradient-teal-light);"></div></td>
+            <td class="tt-value">135deg: #E6F9F7 → #B2EDE8</td>
+            <td class="tt-use">Cards suaves, avatares</td>
+          </tr>
+          <tr>
+            <td class="tt-token">--gradient-fade-navy</td>
+            <td><div style="width:40px;height:18px;border-radius:3px;background:linear-gradient(135deg,rgba(13,27,42,0.1),rgba(13,27,42,0.9));"></div></td>
+            <td class="tt-value">transparent → rgba(navy, 0.9)</td>
+            <td class="tt-use">Overlay de imagens</td>
+          </tr>
+          <tr>
+            <td class="tt-token">--gradient-radial-teal</td>
+            <td><div style="width:40px;height:18px;border-radius:3px;background:radial-gradient(circle, rgba(23,195,178,0.4),transparent);border:1px solid var(--border-light);"></div></td>
+            <td class="tt-value">radial: teal 20% → transparent</td>
+            <td class="tt-use">Spotlight, hover card</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ===========================================================
+         TIPOGRAFIA
+    =========================================================== -->
+    <section class="ds-section" id="tipografia">
+      <div class="section-eyebrow">03 · Fundação</div>
+      <h2 class="section-title"><em>Tipografia</em></h2>
+      <p class="section-desc">DM Sans em todas as hierarquias — do display ao caption. Fonte geométrica moderna, legível e versátil. Pesos variáveis de 300 a 800. IBM Plex Mono para código e tokens técnicos.</p>
+
+      <div class="font-specimens">
+        <div class="font-spec">
+          <div class="font-spec-label">DM Sans · Display & Headings (700–800)</div>
+          <div style="font-family: var(--font-body); font-size: 40px; font-weight: 800; color: var(--text-primary); line-height: 1.0; letter-spacing: -0.04em; margin-bottom: var(--sp-4);">
+            ABCDEFG<br>HIJKLMN<br>OPQRSTU
+          </div>
+          <div style="font-family: var(--font-body); font-size: 22px; font-weight: 800; color: var(--teal-deeper); letter-spacing:-0.03em;">
+            WeCann Summit
+          </div>
+          <div style="font-family: var(--font-body); font-size: 14px; color: var(--text-secondary); margin-top: 8px; font-weight:400;">
+            700 Bold · 800 ExtraBold · letras apertadas
+          </div>
+        </div>
+        <div class="font-spec">
+          <div class="font-spec-label">DM Sans · Body & UI (300–600)</div>
+          <div style="font-family: var(--font-body); font-size: 18px; font-weight: 400; color: var(--text-primary); line-height: 1.5; margin-bottom: var(--sp-4);">
+            ABCDEFGHIJKLMN<br>OPQRSTUVWXYZ<br>abcdefghijklmn<br>opqrstuvwxyz<br>0123456789
+          </div>
+          <div style="font-family: var(--font-body); font-size: 13px; color: var(--text-secondary);">
+            300 Light · 400 Regular · 500 Medium · 600 SemiBold
+          </div>
+        </div>
+      </div>
+
+      <!-- Type Scale -->
+      <div class="type-scale">
+        <div class="type-row">
+          <div class="type-meta"><strong>Display</strong>DM Sans / 64px / 800<br>lh: 1.0 / ls: -0.04em</div>
+          <div class="ts-display">O Congresso</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><strong>H1</strong>DM Sans / 52px / 700<br>lh: 1.1 / ls: -0.03em</div>
+          <div class="ts-h1">WeCann Summit 2025</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><strong>H2</strong>DM Sans / 42px / 700<br>lh: 1.15 / ls: -0.025em</div>
+          <div class="ts-h2">Medicina Endocanabinoide</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><strong>H3</strong>DM Sans / 34px / 600<br>lh: 1.2 / ls: -0.02em</div>
+          <div class="ts-h3">Palestrantes Internacionais</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><strong>H4</strong>DM Sans / 28px / 600<br>lh: 1.25 / ls: -0.015em</div>
+          <div class="ts-h4">Royal Palm Hall, Campinas</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><strong>H5</strong>DM Sans / 22px / 600<br>lh: 1.35</div>
+          <div class="ts-h5">Programação Científica</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><strong>Lead / Intro</strong>DM Sans / 18px / 300<br>lh: 1.7</div>
+          <div class="ts-lead">Reúne mais de 1.400 médicos de 60 especialidades em três dias de conteúdo científico de alto nível.</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><strong>Body</strong>DM Sans / 15px / 400<br>lh: 1.65</div>
+          <div class="ts-body" style="color:var(--text-primary);">O WeCann Summit 2025 é o maior congresso médico do mundo sobre Medicina Endocanabinoide. A programação abrange neurologia, oncologia, psiquiatria, medicina da dor e mais 60 especialidades.</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><strong>Small</strong>DM Sans / 13px / 400<br>lh: 1.55</div>
+          <div class="ts-small">23 a 25 de outubro de 2025 · Royal Palm Hall · Campinas, São Paulo, Brasil</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><strong>Caption</strong>DM Sans / 12px / 400<br>lh: 1.5</div>
+          <div class="ts-caption">* Preços sujeitos a alteração sem aviso prévio. Consulte as condições de pagamento no site oficial.</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><strong>Label / Tag</strong>DM Sans / 11px / 700<br>UC · ls: 0.10em</div>
+          <div class="ts-label">Congresso Internacional · Medicina Endocanabinoide</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><strong>Mono</strong>IBM Plex Mono / 13px / 400</div>
+          <div><code class="ts-mono">--color-teal: #17C3B2; /* Brand primary */</code></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================================================
+         ESPAÇAMENTO
+    =========================================================== -->
+    <section class="ds-section" id="espacamento">
+      <div class="section-eyebrow">03 · Fundação</div>
+      <h2 class="section-title">Sistema de <em>Espaçamento</em></h2>
+      <p class="section-desc">Escala base-4px com multiplicadores progressivos. Garante layouts respirados e hierarquia visual clara em todos os breakpoints.</p>
+
+      <table class="spacing-table">
+        <thead>
+          <tr>
+            <th>Token</th>
+            <th>px</th>
+            <th style="width:40%">Visualização</th>
+            <th>Uso recomendado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="sp-token">--sp-1</td><td class="sp-px">4px</td><td class="sp-bar-wrap"><div class="sp-bar" style="width:4px;"></div></td><td class="sp-use">Micro-gaps, ícones</td></tr>
+          <tr><td class="sp-token">--sp-2</td><td class="sp-px">8px</td><td class="sp-bar-wrap"><div class="sp-bar" style="width:8px;"></div></td><td class="sp-use">Gap entre elementos inline</td></tr>
+          <tr><td class="sp-token">--sp-3</td><td class="sp-px">12px</td><td class="sp-bar-wrap"><div class="sp-bar" style="width:12px;"></div></td><td class="sp-use">Padding interno de badge</td></tr>
+          <tr><td class="sp-token">--sp-4</td><td class="sp-px">16px</td><td class="sp-bar-wrap"><div class="sp-bar" style="width:16px;"></div></td><td class="sp-use">Padding de botão sm, gap de grid</td></tr>
+          <tr><td class="sp-token">--sp-5</td><td class="sp-px">20px</td><td class="sp-bar-wrap"><div class="sp-bar" style="width:20px;"></div></td><td class="sp-use">Gap entre cards</td></tr>
+          <tr><td class="sp-token">--sp-6</td><td class="sp-px">24px</td><td class="sp-bar-wrap"><div class="sp-bar" style="width:24px;"></div></td><td class="sp-use">Padding de card</td></tr>
+          <tr><td class="sp-token">--sp-8</td><td class="sp-px">32px</td><td class="sp-bar-wrap"><div class="sp-bar" style="width:32px;"></div></td><td class="sp-use">Padding interno de seção, card xl</td></tr>
+          <tr><td class="sp-token">--sp-10</td><td class="sp-px">40px</td><td class="sp-bar-wrap"><div class="sp-bar" style="width:40px;"></div></td><td class="sp-use">Gap entre grupos de componentes</td></tr>
+          <tr><td class="sp-token">--sp-12</td><td class="sp-px">48px</td><td class="sp-bar-wrap"><div class="sp-bar" style="width:48px;"></div></td><td class="sp-use">Margem inferior de títulos</td></tr>
+          <tr><td class="sp-token">--sp-16</td><td class="sp-px">64px</td><td class="sp-bar-wrap"><div class="sp-bar" style="width:64px;"></div></td><td class="sp-use">Padding de seção (lateral)</td></tr>
+          <tr><td class="sp-token">--sp-20</td><td class="sp-px">80px</td><td class="sp-bar-wrap"><div class="sp-bar" style="width:80px;"></div></td><td class="sp-use">Padding vertical de seção</td></tr>
+          <tr><td class="sp-token">--sp-24</td><td class="sp-px">96px</td><td class="sp-bar-wrap"><div class="sp-bar" style="width:96px;"></div></td><td class="sp-use">Hero sections</td></tr>
+          <tr><td class="sp-token">--sp-32</td><td class="sp-px">128px</td><td class="sp-bar-wrap"><div class="sp-bar" style="width:128px;"></div></td><td class="sp-use">Grandes divisões de layout</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ===========================================================
+         BORDAS
+    =========================================================== -->
+    <section class="ds-section" id="bordas">
+      <div class="section-eyebrow">04 · Fundação</div>
+      <h2 class="section-title">Bordas & <em>Raios</em></h2>
+
+      <div style="display: flex; gap: var(--sp-5); flex-wrap: wrap; align-items: flex-end;">
+        <div style="text-align:center;">
+          <div style="width:80px;height:80px;border-radius:var(--r-xs);background:var(--gray-50);border:1px solid var(--border-mid);margin-bottom:var(--sp-3);display:flex;align-items:center;justify-content:center;">
+            <span style="font-family:var(--font-mono);font-size:9px;color:var(--teal-deeper);">2px</span>
+          </div>
+          <span style="font-family:var(--font-mono);font-size:11px;color:var(--text-tertiary);">--r-xs</span>
+        </div>
+        <div style="text-align:center;">
+          <div style="width:80px;height:80px;border-radius:var(--r-sm);background:var(--gray-50);border:1px solid var(--border-mid);margin-bottom:var(--sp-3);display:flex;align-items:center;justify-content:center;">
+            <span style="font-family:var(--font-mono);font-size:9px;color:var(--teal-deeper);">4px</span>
+          </div>
+          <span style="font-family:var(--font-mono);font-size:11px;color:var(--text-tertiary);">--r-sm</span>
+        </div>
+        <div style="text-align:center;">
+          <div style="width:80px;height:80px;border-radius:var(--r-md);background:var(--gray-50);border:1px solid var(--border-mid);margin-bottom:var(--sp-3);display:flex;align-items:center;justify-content:center;">
+            <span style="font-family:var(--font-mono);font-size:9px;color:var(--teal-deeper);">8px</span>
+          </div>
+          <span style="font-family:var(--font-mono);font-size:11px;color:var(--text-tertiary);">--r-md</span>
+        </div>
+        <div style="text-align:center;">
+          <div style="width:80px;height:80px;border-radius:var(--r-lg);background:var(--teal-light);border:1px solid var(--teal-mid);margin-bottom:var(--sp-3);display:flex;align-items:center;justify-content:center;">
+            <span style="font-family:var(--font-mono);font-size:9px;color:var(--teal-deeper);">12px</span>
+          </div>
+          <span style="font-family:var(--font-mono);font-size:11px;color:var(--teal-deeper);">--r-lg</span>
+        </div>
+        <div style="text-align:center;">
+          <div style="width:80px;height:80px;border-radius:var(--r-xl);background:var(--teal-light);border:1px solid var(--teal-mid);margin-bottom:var(--sp-3);display:flex;align-items:center;justify-content:center;">
+            <span style="font-family:var(--font-mono);font-size:9px;color:var(--teal-deeper);">16px</span>
+          </div>
+          <span style="font-family:var(--font-mono);font-size:11px;color:var(--teal-deeper);">--r-xl</span>
+        </div>
+        <div style="text-align:center;">
+          <div style="width:80px;height:80px;border-radius:var(--r-2xl);background:var(--teal-light);border:1px solid var(--teal-mid);margin-bottom:var(--sp-3);display:flex;align-items:center;justify-content:center;">
+            <span style="font-family:var(--font-mono);font-size:9px;color:var(--teal-deeper);">24px</span>
+          </div>
+          <span style="font-family:var(--font-mono);font-size:11px;color:var(--teal-deeper);">--r-2xl · cards</span>
+        </div>
+        <div style="text-align:center;">
+          <div style="width:80px;height:80px;border-radius:var(--r-3xl);background:var(--teal-light);border:1px solid var(--teal-mid);margin-bottom:var(--sp-3);display:flex;align-items:center;justify-content:center;">
+            <span style="font-family:var(--font-mono);font-size:9px;color:var(--teal-deeper);">32px</span>
+          </div>
+          <span style="font-family:var(--font-mono);font-size:11px;color:var(--teal-deeper);">--r-3xl · hero</span>
+        </div>
+        <div style="text-align:center;">
+          <div style="width:80px;height:32px;border-radius:var(--r-full);background:var(--navy);border:1px solid var(--navy);margin-bottom:var(--sp-3);display:flex;align-items:center;justify-content:center;">
+            <span style="font-family:var(--font-mono);font-size:9px;color:white;">pill</span>
+          </div>
+          <span style="font-family:var(--font-mono);font-size:11px;color:var(--navy);">--r-full · badges</span>
+        </div>
+      </div>
+
+      <div class="ds-divider" style="margin-top: var(--sp-10);"></div>
+
+      <div style="font-size: var(--fs-xs); font-family: var(--font-mono); color: var(--text-tertiary); margin-bottom: var(--sp-5);">Espessuras de Borda</div>
+      <div style="display:flex;gap:var(--sp-5);align-items:center;flex-wrap:wrap;">
+        <div style="display:flex;align-items:center;gap:var(--sp-3);">
+          <div style="width:60px;height:40px;border:1px solid var(--border-mid);border-radius:var(--r-md);"></div>
+          <span style="font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--text-tertiary);">1px · padrão</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:var(--sp-3);">
+          <div style="width:60px;height:40px;border:1.5px solid var(--teal);border-radius:var(--r-md);"></div>
+          <span style="font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--teal-deeper);">1.5px · botão outline</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:var(--sp-3);">
+          <div style="width:60px;height:40px;border:2px solid var(--pink);border-radius:var(--r-md);"></div>
+          <span style="font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--pink-dark);">2px · foco / destaque</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:var(--sp-3);">
+          <div style="width:60px;height:40px;border:1px dashed var(--border-mid);border-radius:var(--r-md);"></div>
+          <span style="font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--text-tertiary);">dashed · layout guides</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================================================
+         SOMBRAS
+    =========================================================== -->
+    <section class="ds-section" id="sombras">
+      <div class="section-eyebrow">05 · Fundação</div>
+      <h2 class="section-title">Sombras & <em>Elevação</em></h2>
+      <p class="section-desc">Sombras leves calibradas para fundo branco. Cada nível representa uma camada de elevação — de elementos inline até modais.</p>
+
+      <div class="shadow-row">
+        <div class="shadow-card" style="border:1px solid var(--border-light);">
+          <span style="font-size:22px;">□</span>
+          <span class="shadow-token">Nível 0</span>
+          <span class="shadow-val">border apenas</span>
+        </div>
+        <div class="shadow-card" style="box-shadow:var(--shadow-xs);">
+          <span style="font-size:22px;">□</span>
+          <span class="shadow-token">--shadow-xs</span>
+          <span class="shadow-val">inputs, tags</span>
+        </div>
+        <div class="shadow-card" style="box-shadow:var(--shadow-sm);">
+          <span style="font-size:22px;">□</span>
+          <span class="shadow-token">--shadow-sm</span>
+          <span class="shadow-val">dropdown, tooltip</span>
+        </div>
+        <div class="shadow-card" style="box-shadow:var(--shadow-md);">
+          <span style="font-size:22px;">□</span>
+          <span class="shadow-token">--shadow-md</span>
+          <span class="shadow-val">cards, badges</span>
+        </div>
+        <div class="shadow-card" style="box-shadow:var(--shadow-lg);">
+          <span style="font-size:22px;">□</span>
+          <span class="shadow-token">--shadow-lg</span>
+          <span class="shadow-val">cards hover</span>
+        </div>
+        <div class="shadow-card" style="box-shadow:var(--shadow-xl);">
+          <span style="font-size:22px;">□</span>
+          <span class="shadow-token">--shadow-xl</span>
+          <span class="shadow-val">modais, overlays</span>
+        </div>
+        <div class="shadow-card" style="box-shadow:var(--shadow-teal); border: 1px solid var(--teal-mid);">
+          <span style="font-size:22px; color:var(--teal);">□</span>
+          <span class="shadow-token" style="color:var(--teal-deeper);">--shadow-teal</span>
+          <span class="shadow-val">botão primário</span>
+        </div>
+        <div class="shadow-card" style="box-shadow:var(--shadow-pink); border: 1px solid var(--pink-mid);">
+          <span style="font-size:22px; color:var(--pink);">□</span>
+          <span class="shadow-token" style="color:var(--pink-dark);">--shadow-pink</span>
+          <span class="shadow-val">botão secundário</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================================================
+         BOTÕES
+    =========================================================== -->
+    <section class="ds-section" id="botoes">
+      <div class="section-eyebrow">06 · Componentes</div>
+      <h2 class="section-title"><em>Botões</em></h2>
+      <p class="section-desc">Hierarquia de 5 variantes com 5 tamanhos. Botão teal para ação primária; pink para urgência/CTA crítico; navy para ações formais. Todos com hover elevado e foco acessível.</p>
+
+      <div class="btn-group">
+        <div class="btn-group-title">Variantes</div>
+        <div class="btn-row">
+          <button class="btn btn-teal btn-md">Garantir Ingresso</button>
+          <button class="btn btn-pink btn-md">Esgotado</button>
+          <button class="btn btn-navy btn-md">Ver Programação</button>
+          <button class="btn btn-outline-teal btn-md">Saiba Mais</button>
+          <button class="btn btn-outline-navy btn-md">Cancelar</button>
+          <button class="btn btn-ghost btn-md">Fechar</button>
+          <button class="btn btn-disabled btn-md" disabled>Indisponível</button>
+        </div>
+      </div>
+
+      <div class="btn-group">
+        <div class="btn-group-title">Com ícones</div>
+        <div class="btn-row">
+          <button class="btn btn-teal btn-md">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+            Garantir Vaga
+          </button>
+          <button class="btn btn-outline-teal btn-md">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Programação
+          </button>
+          <button class="btn btn-outline-navy btn-md">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Como Chegar
+          </button>
+          <button class="btn btn-teal btn-md">
+            Baixar App
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="btn-group">
+        <div class="btn-group-title">Tamanhos (btn-teal)</div>
+        <div class="btn-row" style="align-items: center;">
+          <button class="btn btn-teal btn-xs">XS · 10px</button>
+          <button class="btn btn-teal btn-sm">Small · 13px</button>
+          <button class="btn btn-teal btn-md">Medium · 13px</button>
+          <button class="btn btn-teal btn-lg">Large · 15px</button>
+          <button class="btn btn-teal btn-xl">XL · 18px · CTA Principal</button>
+        </div>
+      </div>
+
+      <div class="btn-group">
+        <div class="btn-group-title">Estado Desabilitado</div>
+        <div class="btn-row">
+          <button class="btn btn-disabled btn-md" disabled>Teal disabled</button>
+          <button class="btn btn-disabled btn-md" disabled>Pink disabled</button>
+          <button class="btn btn-outline-teal btn-md" style="opacity:0.45; cursor:not-allowed;" disabled>Outline disabled</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================================================
+         BADGES
+    =========================================================== -->
+    <section class="ds-section" id="badges">
+      <div class="section-eyebrow">07 · Componentes</div>
+      <h2 class="section-title">Badges & <em>Tags</em></h2>
+
+      <div style="margin-bottom: var(--sp-8);">
+        <div class="btn-group-title">Status do Evento</div>
+        <div style="display:flex;flex-wrap:wrap;gap:var(--sp-3);">
+          <span class="badge badge-esgotado">Ingressos Esgotados</span>
+          <span class="badge badge-teal badge-dot">Disponível</span>
+          <span class="badge badge-pink badge-dot">Últimas Vagas</span>
+          <span class="badge badge-warning badge-dot">Em Breve</span>
+          <span class="badge badge-success badge-dot">Confirmado</span>
+          <span class="badge badge-gray">Encerrado</span>
+        </div>
+      </div>
+
+      <div style="margin-bottom: var(--sp-8);">
+        <div class="btn-group-title">Especialidades Médicas</div>
+        <div style="display:flex;flex-wrap:wrap;gap:var(--sp-2);">
+          <span class="badge badge-teal">Neurologia</span>
+          <span class="badge badge-teal">Oncologia</span>
+          <span class="badge badge-teal">Psiquiatria</span>
+          <span class="badge badge-teal">Medicina da Dor</span>
+          <span class="badge badge-teal">Pediatria</span>
+          <span class="badge badge-teal">Geriatria</span>
+          <span class="badge badge-teal">Endocrinologia</span>
+          <span class="badge badge-teal">Reumatologia</span>
+          <span class="badge badge-teal">Clínica Médica</span>
+          <span class="badge badge-gray">+52 especialidades</span>
+        </div>
+      </div>
+
+      <div style="margin-bottom: var(--sp-8);">
+        <div class="btn-group-title">Hierarquia de Patrocínio</div>
+        <div style="display:flex;flex-wrap:wrap;gap:var(--sp-3);">
+          <span class="badge badge-diamond">◆ Diamond</span>
+          <span class="badge badge-gold">★ Gold</span>
+          <span class="badge badge-silver">● Silver</span>
+          <span class="badge badge-gray">Apoio Institucional</span>
+        </div>
+      </div>
+
+      <div>
+        <div class="btn-group-title">Países / Origem</div>
+        <div style="display:flex;flex-wrap:wrap;gap:var(--sp-2);">
+          <span class="badge badge-navy">🇧🇷 Brasil</span>
+          <span class="badge badge-navy">🇩🇪 Alemanha</span>
+          <span class="badge badge-navy">🇺🇸 EUA</span>
+          <span class="badge badge-navy">🇬🇧 Reino Unido</span>
+          <span class="badge badge-navy">🇪🇸 Espanha</span>
+          <span class="badge badge-navy">🇨🇦 Canadá</span>
+          <span class="badge badge-navy">🇨🇴 Colômbia</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================================================
+         MARQUEE
+    =========================================================== -->
+    <section class="ds-section" id="marquee">
+      <div class="section-eyebrow">08 · Componentes</div>
+      <h2 class="section-title">Banner <em>Marquee</em></h2>
+      <p class="section-desc">Faixa de comunicado urgente com texto em loop. Três variantes de cor conforme o tipo de mensagem.</p>
+
+      <div style="display:flex;flex-direction:column;gap:var(--sp-5);">
+        <!-- Pink — urgência -->
+        <div>
+          <div class="btn-group-title">Urgência / Esgotado (Pink)</div>
+          <div class="marquee-wrap">
+            <div class="marquee-bar">
+              <div class="marquee-track">
+                <span class="marquee-item">INGRESSOS ESGOTADOS</span><span class="marquee-item marquee-sep">✦</span>
+                <span class="marquee-item">INGRESSOS ESGOTADOS</span><span class="marquee-item marquee-sep">✦</span>
+                <span class="marquee-item">INGRESSOS ESGOTADOS</span><span class="marquee-item marquee-sep">✦</span>
+                <span class="marquee-item">INGRESSOS ESGOTADOS</span><span class="marquee-item marquee-sep">✦</span>
+                <span class="marquee-item">INGRESSOS ESGOTADOS</span><span class="marquee-item marquee-sep">✦</span>
+                <span class="marquee-item">INGRESSOS ESGOTADOS</span><span class="marquee-item marquee-sep">✦</span>
+                <span class="marquee-item">INGRESSOS ESGOTADOS</span><span class="marquee-item marquee-sep">✦</span>
+                <span class="marquee-item">INGRESSOS ESGOTADOS</span><span class="marquee-item marquee-sep">✦</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Teal — informativo -->
+        <div>
+          <div class="btn-group-title">Informativo (Teal)</div>
+          <div class="marquee-wrap">
+            <div class="marquee-bar marquee-bar-teal">
+              <div class="marquee-track" style="animation-duration:28s;">
+                <span class="marquee-item">23 · 24 · 25 DE OUTUBRO 2025</span><span class="marquee-item marquee-sep">·</span>
+                <span class="marquee-item">ROYAL PALM HALL · CAMPINAS SP</span><span class="marquee-item marquee-sep">·</span>
+                <span class="marquee-item">MEDICINA ENDOCANABINOIDE</span><span class="marquee-item marquee-sep">·</span>
+                <span class="marquee-item">23 · 24 · 25 DE OUTUBRO 2025</span><span class="marquee-item marquee-sep">·</span>
+                <span class="marquee-item">ROYAL PALM HALL · CAMPINAS SP</span><span class="marquee-item marquee-sep">·</span>
+                <span class="marquee-item">MEDICINA ENDOCANABINOIDE</span><span class="marquee-item marquee-sep">·</span>
+                <span class="marquee-item">23 · 24 · 25 DE OUTUBRO 2025</span><span class="marquee-item marquee-sep">·</span>
+                <span class="marquee-item">ROYAL PALM HALL · CAMPINAS SP</span><span class="marquee-item marquee-sep">·</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navy — formal -->
+        <div>
+          <div class="btn-group-title">Formal / Institucional (Navy)</div>
+          <div class="marquee-wrap">
+            <div class="marquee-bar marquee-bar-navy">
+              <div class="marquee-track" style="animation-duration:32s;">
+                <span class="marquee-item">O MAIOR CONGRESSO MÉDICO MUNDIAL SOBRE MEDICINA ENDOCANABINOIDE</span><span class="marquee-item marquee-sep">◆</span>
+                <span class="marquee-item">O MAIOR CONGRESSO MÉDICO MUNDIAL SOBRE MEDICINA ENDOCANABINOIDE</span><span class="marquee-item marquee-sep">◆</span>
+                <span class="marquee-item">O MAIOR CONGRESSO MÉDICO MUNDIAL SOBRE MEDICINA ENDOCANABINOIDE</span><span class="marquee-item marquee-sep">◆</span>
+                <span class="marquee-item">O MAIOR CONGRESSO MÉDICO MUNDIAL SOBRE MEDICINA ENDOCANABINOIDE</span><span class="marquee-item marquee-sep">◆</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================================================
+         CARDS PALESTRANTES
+    =========================================================== -->
+    <section class="ds-section" id="speakers">
+      <div class="section-eyebrow">09 · Componentes</div>
+      <h2 class="section-title">Cards de <em>Palestrantes</em></h2>
+      <p class="section-desc">Cards com avatar (placeholder com iniciais), nome, especialidade, instituição e bandeira do país. Hover com elevação e borda teal.</p>
+
+      <div class="speaker-grid">
+        <div class="speaker-card">
+          <div class="speaker-img speaker-img-a">
+            <div class="speaker-initials">AS</div>
+            <span class="speaker-flag">🇬🇧</span>
+          </div>
+          <div class="speaker-body">
+            <div class="speaker-name">Anne Schlag</div>
+            <div class="speaker-specialty">Psiquiatria & Neurociências</div>
+            <div class="speaker-institution">UK Medical Cannabis Registry</div>
+          </div>
+        </div>
+        <div class="speaker-card">
+          <div class="speaker-img speaker-img-b">
+            <div class="speaker-initials">JT</div>
+            <span class="speaker-flag">🇺🇸</span>
+          </div>
+          <div class="speaker-body">
+            <div class="speaker-name">Joe Tafur</div>
+            <div class="speaker-specialty">Medicina Integrativa</div>
+            <div class="speaker-institution">Modern Spirit</div>
+          </div>
+        </div>
+        <div class="speaker-card">
+          <div class="speaker-img speaker-img-c">
+            <div class="speaker-initials">FG</div>
+            <span class="speaker-flag">🇩🇪</span>
+          </div>
+          <div class="speaker-body">
+            <div class="speaker-name">Franjo Grotenhermen</div>
+            <div class="speaker-specialty">Medicina da Cannabis</div>
+            <div class="speaker-institution">IACM</div>
+          </div>
+        </div>
+        <div class="speaker-card">
+          <div class="speaker-img speaker-img-a">
+            <div class="speaker-initials">PP</div>
+            <span class="speaker-flag">🇨🇴</span>
+          </div>
+          <div class="speaker-body">
+            <div class="speaker-name">Paola Pineda</div>
+            <div class="speaker-specialty">Oncologia Clínica</div>
+            <div class="speaker-institution">Fundación Canna</div>
+          </div>
+        </div>
+        <div class="speaker-card" style="border-color:var(--teal-mid);">
+          <div class="speaker-img" style="background:linear-gradient(135deg,var(--teal-light),var(--teal-mid));">
+            <div class="speaker-initials" style="background:rgba(255,255,255,0.9);color:var(--teal-deeper);">KM</div>
+            <span class="speaker-flag">🇩🇪</span>
+          </div>
+          <div class="speaker-body">
+            <div class="speaker-name" style="color:var(--teal-deeper);">Kirsten Müller-Vahl</div>
+            <div class="speaker-specialty">Neurologia · Síndrome de Tourette</div>
+            <div class="speaker-institution">Hannover Medical School</div>
+          </div>
+        </div>
+        <div class="speaker-card">
+          <div class="speaker-img speaker-img-d">
+            <div class="speaker-initials">RF</div>
+            <span class="speaker-flag">🇧🇷</span>
+          </div>
+          <div class="speaker-body">
+            <div class="speaker-name">Ricardo Ferreira</div>
+            <div class="speaker-specialty">Endocrinologia</div>
+            <div class="speaker-institution">ABRAN</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================================================
+         CARDS INGRESSOS
+    =========================================================== -->
+    <section class="ds-section" id="tickets">
+      <div class="section-eyebrow">10 · Componentes</div>
+      <h2 class="section-title">Cards de <em>Ingressos</em></h2>
+      <p class="section-desc">Três tiers com hierarquia clara. "Experience" em navy invertido como opção premium de destaque.</p>
+
+      <div class="ticket-grid">
+        <!-- Standard Day -->
+        <div class="ticket-card tier-day">
+          <div class="ticket-card-top"></div>
+          <div class="ticket-days">1 Dia</div>
+          <div class="ticket-name">Standard Day</div>
+          <ul class="ticket-features">
+            <li class="ticket-feature"><span class="ticket-feature-check">✓</span>Acesso a 1 dia do evento</li>
+            <li class="ticket-feature"><span class="ticket-feature-check">✓</span>Certificado de participação</li>
+            <li class="ticket-feature"><span class="ticket-feature-check">✓</span>Material digital</li>
+            <li class="ticket-feature"><span class="ticket-feature-cross">–</span><span style="color:var(--text-disabled);">Comunidade WeCann</span></li>
+            <li class="ticket-feature"><span class="ticket-feature-cross">–</span><span style="color:var(--text-disabled);">Sessões exclusivas</span></li>
+          </ul>
+          <div class="ticket-price-label">Lote 5 · a partir de</div>
+          <div class="ticket-price">R$997</div>
+          <div class="ticket-installments">12× de R$83,08 sem juros</div>
+          <button class="btn btn-outline-navy btn-md" style="width:100%;justify-content:center;">Selecionar</button>
+        </div>
+
+        <!-- Standard -->
+        <div class="ticket-card tier-std">
+          <div class="ticket-card-top"></div>
+          <div class="ticket-popular"><span class="badge badge-teal">Mais Popular</span></div>
+          <div class="ticket-days">3 Dias</div>
+          <div class="ticket-name">Standard</div>
+          <ul class="ticket-features">
+            <li class="ticket-feature"><span class="ticket-feature-check">✓</span>Acesso aos 3 dias</li>
+            <li class="ticket-feature"><span class="ticket-feature-check">✓</span>Certificado de participação</li>
+            <li class="ticket-feature"><span class="ticket-feature-check">✓</span>Material digital completo</li>
+            <li class="ticket-feature"><span class="ticket-feature-check">✓</span>Comunidade (desconto)</li>
+            <li class="ticket-feature"><span class="ticket-feature-cross">–</span><span style="color:var(--text-disabled);">Sessões exclusivas</span></li>
+          </ul>
+          <div class="ticket-price-label">Lote 5 · a partir de</div>
+          <div class="ticket-price" style="color:var(--teal-deeper);">R$1.297</div>
+          <div class="ticket-installments">12× de R$108,08 sem juros</div>
+          <button class="btn btn-teal btn-md" style="width:100%;justify-content:center;">Selecionar</button>
+        </div>
+
+        <!-- Experience -->
+        <div class="ticket-card tier-exp">
+          <div class="ticket-card-top"></div>
+          <div class="ticket-popular"><span class="badge" style="background:linear-gradient(135deg,var(--teal),var(--pink));color:white;font-weight:700;">Premium</span></div>
+          <div class="ticket-days">3 Dias</div>
+          <div class="ticket-name">Experience</div>
+          <ul class="ticket-features">
+            <li class="ticket-feature"><span class="ticket-feature-check">✓</span>Acesso VIP aos 3 dias</li>
+            <li class="ticket-feature"><span class="ticket-feature-check">✓</span>Certificado de participação</li>
+            <li class="ticket-feature"><span class="ticket-feature-check">✓</span>Material digital premium</li>
+            <li class="ticket-feature"><span class="ticket-feature-check">✓</span>Comunidade 1 ano incluso</li>
+            <li class="ticket-feature"><span class="ticket-feature-check" style="color:#FFD700;">✓</span><span style="color:rgba(255,255,255,0.9);">Sessões exclusivas VIP</span></li>
+          </ul>
+          <div class="ticket-price-label">Lote 5 · a partir de</div>
+          <div class="ticket-price">R$2.897</div>
+          <div class="ticket-installments">12× de R$241,42 sem juros</div>
+          <button class="btn btn-teal btn-md" style="width:100%;justify-content:center;">Selecionar Experience</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================================================
+         BANDEIRAS
+    =========================================================== -->
+    <section class="ds-section" id="bandeiras">
+      <div class="section-eyebrow">11 · Componentes</div>
+      <h2 class="section-title">Bandeiras de <em>Países</em></h2>
+      <p class="section-desc">Indicadores de nacionalidade dos palestrantes. Disponíveis como chip com código e nome completo.</p>
+
+      <div class="flags-row">
+        <div class="flag-chip">
+          <span class="flag-emoji">🇧🇷</span>
+          <div class="flag-info">
+            <span class="flag-code">BR</span>
+            <span class="flag-name">Brasil</span>
+          </div>
+        </div>
+        <div class="flag-chip">
+          <span class="flag-emoji">🇺🇸</span>
+          <div class="flag-info">
+            <span class="flag-code">USA</span>
+            <span class="flag-name">Estados Unidos</span>
+          </div>
+        </div>
+        <div class="flag-chip">
+          <span class="flag-emoji">🇩🇪</span>
+          <div class="flag-info">
+            <span class="flag-code">DE</span>
+            <span class="flag-name">Alemanha</span>
+          </div>
+        </div>
+        <div class="flag-chip">
+          <span class="flag-emoji">🇬🇧</span>
+          <div class="flag-info">
+            <span class="flag-code">UK</span>
+            <span class="flag-name">Reino Unido</span>
+          </div>
+        </div>
+        <div class="flag-chip">
+          <span class="flag-emoji">🇪🇸</span>
+          <div class="flag-info">
+            <span class="flag-code">ES</span>
+            <span class="flag-name">Espanha</span>
+          </div>
+        </div>
+        <div class="flag-chip">
+          <span class="flag-emoji">🇨🇴</span>
+          <div class="flag-info">
+            <span class="flag-code">CO</span>
+            <span class="flag-name">Colômbia</span>
+          </div>
+        </div>
+        <div class="flag-chip">
+          <span class="flag-emoji">🇨🇦</span>
+          <div class="flag-info">
+            <span class="flag-code">CA</span>
+            <span class="flag-name">Canadá</span>
+          </div>
+        </div>
+        <div class="flag-chip">
+          <span class="flag-emoji">🇮🇳</span>
+          <div class="flag-info">
+            <span class="flag-code">IN</span>
+            <span class="flag-name">Índia</span>
+          </div>
+        </div>
+        <div class="flag-chip">
+          <span class="flag-emoji">🇦🇷</span>
+          <div class="flag-info">
+            <span class="flag-code">AR</span>
+            <span class="flag-name">Argentina</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================================================
+         PATROCINADORES
+    =========================================================== -->
+    <section class="ds-section" id="sponsors">
+      <div class="section-eyebrow">12 · Componentes</div>
+      <h2 class="section-title"><em>Patrocinadores</em></h2>
+      <p class="section-desc">Hierarquia visual em três tiers. Tamanho e destaque proporcionais ao nível de patrocínio.</p>
+
+      <div class="sponsor-tier">
+        <div class="sponsor-tier-header">
+          <span class="badge badge-diamond">◆ Diamond</span>
+          <div class="sponsor-tier-line"></div>
+        </div>
+        <div class="sponsor-logos">
+          <div class="sponsor-logo sl-diamond">
+            <span class="sponsor-name-text sn-lg">USA Hemp Pharma</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sponsor-tier">
+        <div class="sponsor-tier-header">
+          <span class="badge badge-gold">★ Gold</span>
+          <div class="sponsor-tier-line"></div>
+        </div>
+        <div class="sponsor-logos">
+          <div class="sponsor-logo sl-gold"><span class="sponsor-name-text sn-md">Mantecorp</span></div>
+          <div class="sponsor-logo sl-gold"><span class="sponsor-name-text sn-md">Aché</span></div>
+          <div class="sponsor-logo sl-gold"><span class="sponsor-name-text sn-md">Entourage</span></div>
+        </div>
+      </div>
+
+      <div class="sponsor-tier">
+        <div class="sponsor-tier-header">
+          <span class="badge badge-silver">● Silver</span>
+          <div class="sponsor-tier-line"></div>
+        </div>
+        <div class="sponsor-logos">
+          <div class="sponsor-logo sl-silver"><span class="sponsor-name-text sn-sm">Remederi</span></div>
+          <div class="sponsor-logo sl-silver"><span class="sponsor-name-text sn-sm">HealthMeds</span></div>
+          <div class="sponsor-logo sl-silver"><span class="sponsor-name-text sn-sm">Sensilabs</span></div>
+          <div class="sponsor-logo sl-silver"><span class="sponsor-name-text sn-sm">Alma Lab</span></div>
+          <div class="sponsor-logo sl-silver"><span class="sponsor-name-text sn-sm">CR Wellness</span></div>
+          <div class="sponsor-logo sl-silver"><span class="sponsor-name-text sn-sm">FarmaUSA</span></div>
+          <div class="sponsor-logo sl-silver"><span class="sponsor-name-text sn-sm">NHG</span></div>
+          <div class="sponsor-logo sl-silver"><span class="sponsor-name-text sn-sm">Endogen</span></div>
+        </div>
+      </div>
+
+      <div class="sponsor-tier">
+        <div class="sponsor-tier-header">
+          <span class="badge badge-gray">Apoio Institucional</span>
+          <div class="sponsor-tier-line"></div>
+        </div>
+        <div class="sponsor-logos">
+          <div class="sponsor-logo sl-inst"><span class="sponsor-name-text sn-xs">LACM</span></div>
+          <div class="sponsor-logo sl-inst"><span class="sponsor-name-text sn-xs">ABMFR</span></div>
+          <div class="sponsor-logo sl-inst"><span class="sponsor-name-text sn-xs">SBED</span></div>
+          <div class="sponsor-logo sl-inst"><span class="sponsor-name-text sn-xs">CABSIN</span></div>
+          <div class="sponsor-logo sl-inst"><span class="sponsor-name-text sn-xs">ABRAN</span></div>
+          <div class="sponsor-logo sl-inst"><span class="sponsor-name-text sn-xs">CannaKeys</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================================================
+         HERO
+    =========================================================== -->
+    <section class="ds-section" id="hero">
+      <div class="section-eyebrow">13 · Padrões</div>
+      <h2 class="section-title">Seção <em>Hero</em></h2>
+      <p class="section-desc">O hero usa fundo navy com gradientes de teal e pink, grid de pontos, chip de status pulsante e CTAs primário + secundário.</p>
+
+      <div class="hero-preview">
+        <div class="hero-inner">
+          <div class="hero-chip">
+            <div class="hero-chip-dot"></div>
+            <span class="hero-chip-text">O maior congresso médico mundial sobre Medicina Endocanabinoide</span>
+          </div>
+          <h2 class="hero-title">
+            WeCann<br>
+            <em>Summit</em> 2025
+          </h2>
+          <div class="hero-details">
+            <div class="hero-detail">
+              <span class="hero-detail-icon">📅</span>
+              <span>23 a 25 de outubro de 2025</span>
+            </div>
+            <div class="hero-detail">
+              <span class="hero-detail-icon">📍</span>
+              <span>Royal Palm Hall · Campinas, SP</span>
+            </div>
+            <div class="hero-detail">
+              <span class="hero-detail-icon">🌍</span>
+              <span>+60 especialidades médicas</span>
+            </div>
+          </div>
+          <div class="hero-cta">
+            <button class="btn btn-teal btn-lg">Garantir Ingresso</button>
+            <button class="btn btn-md" style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.8);border:1px solid rgba(255,255,255,0.2);border-radius:var(--r-lg);">Ver Programação</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================================================
+         GRID
+    =========================================================== -->
+    <section class="ds-section" id="grid">
+      <div class="section-eyebrow">14 · Padrões</div>
+      <h2 class="section-title">Grid & <em>Layout</em></h2>
+      <p class="section-desc">Sistema de 12 colunas com dois containers (800px editorial, 1200px wide). Sidebar de 256px em documentos de referência.</p>
+
+      <div class="grid-demo-block">
+        <div class="grid-demo-label">Grid 12 colunas — container 1200px</div>
+        <div class="grid-wrapper">
+          <div class="g12">
+            <div class="g-cell">1</div><div class="g-cell">2</div><div class="g-cell">3</div>
+            <div class="g-cell">4</div><div class="g-cell">5</div><div class="g-cell">6</div>
+            <div class="g-cell">7</div><div class="g-cell">8</div><div class="g-cell">9</div>
+            <div class="g-cell">10</div><div class="g-cell">11</div><div class="g-cell">12</div>
+          </div>
+          <div class="g12">
+            <div class="g-cell g-span6">6/12 · 50%</div>
+            <div class="g-cell g-span6">6/12 · 50%</div>
+          </div>
+          <div class="g12">
+            <div class="g-cell g-span4">4/12 · 33%</div>
+            <div class="g-cell g-span4">4/12 · 33%</div>
+            <div class="g-cell g-span4">4/12 · 33%</div>
+          </div>
+          <div class="g12">
+            <div class="g-cell g-span3">3/12</div>
+            <div class="g-cell g-span3">3/12</div>
+            <div class="g-cell g-span3">3/12</div>
+            <div class="g-cell g-span3">3/12</div>
+          </div>
+          <div class="g12">
+            <div class="g-cell g-span8">8/12 · Conteúdo Principal</div>
+            <div class="g-cell g-span4-pink">4/12 · Sidebar</div>
+          </div>
+          <div class="g12">
+            <div class="g-cell g-span12">12/12 · Full Width (hero, marquee, footer)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bp-chips">
+        <div class="bp-chip">
+          <span class="bp-name">Mobile</span>
+          <span class="bp-range">0 – 639px · 4 cols</span>
+        </div>
+        <div class="bp-chip" style="border-color:var(--teal-mid);">
+          <span class="bp-name" style="color:var(--teal-deeper);">Tablet</span>
+          <span class="bp-range">640 – 1023px · 8 cols</span>
+        </div>
+        <div class="bp-chip" style="border-color:var(--teal-mid);">
+          <span class="bp-name" style="color:var(--teal-deeper);">Desktop SM</span>
+          <span class="bp-range">1024px+ · container 800px</span>
+        </div>
+        <div class="bp-chip" style="border-color:var(--teal); background:var(--teal-light);">
+          <span class="bp-name" style="color:var(--teal-deeper);">Desktop LG</span>
+          <span class="bp-range">1280px+ · container 1200px</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================================================
+         ANIMAÇÕES
+    =========================================================== -->
+    <section class="ds-section" id="animacoes">
+      <div class="section-eyebrow">15 · Padrões</div>
+      <h2 class="section-title"><em>Animações</em></h2>
+      <p class="section-desc">Classes de animação ativadas por scroll (GSAP + ScrollTrigger) ou ao montar o componente. Passe o mouse para re-executar cada animação.</p>
+
+      <div class="anim-grid">
+        <div class="anim-card anim-card-left">
+          <span class="anim-label">.entradaesquerda</span>
+          <div class="anim-stage"><div class="anim-box"></div></div>
+          <p class="anim-desc">Entrada da esquerda com fade. Parágrafos, imagens e blocos no lado esquerdo.</p>
+          <div class="anim-props">translateX(-40px) → 0 · opacity 0→1 · 0.7s ease-out</div>
+        </div>
+        <div class="anim-card anim-card-right">
+          <span class="anim-label">.entradadireita</span>
+          <div class="anim-stage"><div class="anim-box" style="background:linear-gradient(135deg,var(--pink-light),var(--pink-mid));border-color:var(--pink);"></div></div>
+          <p class="anim-desc">Entrada da direita com fade. Imagens e elementos no lado direito do viewport.</p>
+          <div class="anim-props">translateX(40px) → 0 · opacity 0→1 · 0.7s ease-out</div>
+        </div>
+        <div class="anim-card anim-card-top">
+          <span class="anim-label">.entradacima</span>
+          <div class="anim-stage"><div class="anim-box" style="background:linear-gradient(135deg,#EEF1F6,#DDE3EC);border-color:var(--border-mid);"></div></div>
+          <p class="anim-desc">Entrada de cima. Headers de seção, badges, elementos que "descem" para o layout.</p>
+          <div class="anim-props">translateY(-30px) → 0 · opacity 0→1 · 0.7s ease-out</div>
+        </div>
+        <div class="anim-card anim-card-up">
+          <span class="anim-label">.textosubindo</span>
+          <div class="anim-stage"><div class="anim-box" style="background:linear-gradient(135deg,var(--teal-light),var(--teal));border-color:var(--teal);"></div></div>
+          <p class="anim-desc">Texto subindo com blur reveal. Aplicado linha a linha nos títulos grandes (SplitType).</p>
+          <div class="anim-props">translateY(40px) + blur(3px) → 0 · 0.8s ease-out</div>
+        </div>
+        <div class="anim-card anim-card-fade">
+          <span class="anim-label">.textoopacidade</span>
+          <div class="anim-stage"><div class="anim-box" style="background:var(--gray-100);border-color:var(--border-mid);"></div></div>
+          <p class="anim-desc">Fade in simples. Para ícones, separadores e elementos decorativos de suporte.</p>
+          <div class="anim-props">opacity: 0 → 1 · ease · 1s</div>
+        </div>
+        <div class="anim-card anim-card-3d">
+          <span class="anim-label">.texto3d</span>
+          <div class="anim-stage"><div class="anim-box" style="background:linear-gradient(135deg,var(--navy),#1A2E42);border-color:var(--teal);"></div></div>
+          <p class="anim-desc">Perspectiva 3D + subida. Headings principais para efeito cinematográfico de destaque.</p>
+          <div class="anim-props">perspective(400px) rotateX(15deg) → 0 · 0.8s ease-out</div>
+        </div>
+        <div class="anim-card anim-card-scale">
+          <span class="anim-label">.textoescala</span>
+          <div class="anim-stage"><div class="anim-box" style="background:linear-gradient(135deg,var(--pink-light),var(--pink-mid));border-color:var(--pink);"></div></div>
+          <p class="anim-desc">Scale up com fade. Para cards, logos de patrocinadores e elementos em grid.</p>
+          <div class="anim-props">scale(0.85) → 1 · opacity 0→1 · 0.6s ease-out</div>
+        </div>
+      </div>
+
+      <div style="margin-top:var(--sp-8);background:var(--gray-50);border:1px solid var(--border-light);border-radius:var(--r-2xl);padding:var(--sp-6) var(--sp-8);">
+        <div style="font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--text-tertiary);margin-bottom:var(--sp-4);">Configuração de timing</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:var(--sp-4);">
+          <div style="font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--text-secondary);"><span style="color:var(--teal-deeper);">--ease-out:</span><br>cubic-bezier(0.16, 1, 0.3, 1)</div>
+          <div style="font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--text-secondary);">
+            <span style="color:var(--teal-deeper);">--t-fast:</span> 150ms<br>
+            <span style="color:var(--teal-deeper);">--t-base:</span> 240ms<br>
+            <span style="color:var(--teal-deeper);">--t-slow:</span> 380ms
+          </div>
+          <div style="font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--text-secondary);">
+            <span style="color:var(--teal-deeper);">Biblioteca:</span><br>
+            GSAP 3 + ScrollTrigger<br>
+            SplitType (split/line)<br>
+            jQuery (modais)
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================================================
+         ÍCONES
+    =========================================================== -->
+    <section class="ds-section" id="icones">
+      <div class="section-eyebrow">16 · Componentes</div>
+      <h2 class="section-title">Sistema de <em>Ícones</em></h2>
+      <p class="section-desc">Ícones SVG stroke-based, estilo Lucide. Traço de 1.5px, bordas arredondadas, grade de 24×24px. Escaláveis em 5 tamanhos e disponíveis em 5 variantes de cor.</p>
+
+      <style>
+        .icon-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+          gap: var(--sp-3);
+        }
+        .icon-item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: var(--sp-2);
+          padding: var(--sp-4) var(--sp-3);
+          border-radius: var(--r-xl);
+          border: 1px solid var(--border-light);
+          background: var(--white);
+          cursor: default;
+          transition: all var(--t-base) var(--ease-out);
+        }
+        .icon-item:hover {
+          border-color: var(--teal-mid);
+          background: var(--teal-light);
+          transform: translateY(-2px);
+          box-shadow: var(--shadow-sm);
+        }
+        .icon-item:hover svg { color: var(--teal-deeper); }
+        .icon-item svg { color: var(--text-secondary); transition: color var(--t-fast); }
+        .icon-name {
+          font-size: 10px;
+          font-family: var(--font-mono);
+          color: var(--text-tertiary);
+          text-align: center;
+          line-height: 1.3;
+        }
+        .icon-category-title {
+          font-size: var(--fs-xs);
+          font-weight: var(--fw-semi);
+          text-transform: uppercase;
+          letter-spacing: 0.1em;
+          color: var(--text-tertiary);
+          margin: var(--sp-10) 0 var(--sp-4);
+          padding-bottom: var(--sp-2);
+          border-bottom: 1px solid var(--border-light);
+          display: flex;
+          align-items: center;
+          gap: var(--sp-3);
+        }
+        .icon-category-title::before {
+          content: '';
+          width: 14px; height: 2px;
+          background: var(--teal);
+          border-radius: 2px;
+        }
+        .icon-size-row {
+          display: flex;
+          align-items: center;
+          gap: var(--sp-8);
+          padding: var(--sp-6) 0;
+          border-bottom: 1px solid var(--border-light);
+          flex-wrap: wrap;
+        }
+        .icon-size-row:last-child { border-bottom: none; }
+        .icon-size-item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: var(--sp-2);
+        }
+        .icon-size-label {
+          font-family: var(--font-mono);
+          font-size: 10px;
+          color: var(--text-tertiary);
+        }
+        .icon-color-row {
+          display: flex;
+          align-items: center;
+          gap: var(--sp-5);
+          flex-wrap: wrap;
+          padding: var(--sp-5) 0;
+          border-bottom: 1px solid var(--border-light);
+        }
+        .icon-color-row:last-child { border-bottom: none; }
+        .icon-color-item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: var(--sp-2);
+          padding: var(--sp-4) var(--sp-5);
+          border-radius: var(--r-lg);
+          min-width: 72px;
+        }
+        .icon-color-label {
+          font-family: var(--font-mono);
+          font-size: 10px;
+          text-align: center;
+        }
+        .icon-usage-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+          gap: var(--sp-5);
+          margin-top: var(--sp-5);
+        }
+        .icon-usage-card {
+          background: var(--white);
+          border: 1px solid var(--border-light);
+          border-radius: var(--r-2xl);
+          padding: var(--sp-6);
+          display: flex;
+          flex-direction: column;
+          gap: var(--sp-4);
+          transition: box-shadow var(--t-base);
+        }
+        .icon-usage-card:hover { box-shadow: var(--shadow-md); }
+        .icon-usage-label {
+          font-family: var(--font-mono);
+          font-size: var(--fs-xs);
+          color: var(--text-tertiary);
+        }
+      </style>
+
+      <!-- CATEGORIA: Navegação & UI -->
+      <div class="icon-category-title">Navegação & UI</div>
+      <div class="icon-grid">
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span class="icon-name">home</span></div>
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg><span class="icon-name">menu</span></div>
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><span class="icon-name">close</span></div>
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg><span class="icon-name">chevron-right</span></div>
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg><span class="icon-name">chevron-left</span></div>
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg><span class="icon-name">chevron-down</span></div>
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg><span class="icon-name">arrow-right</span></div>
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span class="icon-name">search</span></div>
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg><span class="icon-name">external-link</span></div>
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span class="icon-name">info</span></div>
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg><span class="icon-name">check</span></div>
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="20 6 9 17 4 12"/></svg><span class="icon-name">check-circle</span></div>
+      </div>
+
+      <!-- CATEGORIA: Evento & Congresso -->
+      <div class="icon-category-title">Evento & Congresso</div>
+      <div class="icon-grid">
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span class="icon-name">calendar</span></div>
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span class="icon-name">clock</span></div>
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span class="icon-name">map-pin</span></div>
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span class="icon-name">users</span></div>
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><span class="icon-name">star</span></div>
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg><span class="icon-name">ticket</span></div>
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="icon-name">book-open</span></div>
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg><span class="icon-name">video</span></div>
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg><span class="icon-name">user-plus</span></div>
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg><span class="icon-name">briefcase</span></div>
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="icon-name">globe</span></div>
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span class="icon-name">message-square</span></div>
+      </div>
+
+      <!-- CATEGORIA: Médico & Científico -->
+      <div class="icon-category-title">Médico & Científico</div>
+      <div class="icon-grid">
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><span class="icon-name">heart</span></div>
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg><span class="icon-name">activity</span></div>
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span class="icon-name">shield</span></div>
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg><span class="icon-name">plus (cruz)</span></div>
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span class="icon-name">check-verified</span></div>
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg><span class="icon-name">atom</span></div>
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18"/></svg><span class="icon-name">grid</span></div>
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg><span class="icon-name">search-plus</span></div>
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/><line x1="6" y1="8" x2="10" y2="8"/><line x1="14" y1="8" x2="18" y2="8"/><line x1="6" y1="12" x2="10" y2="12"/><line x1="14" y1="12" x2="18" y2="12"/></svg><span class="icon-name">clipboard</span></div>
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg><span class="icon-name">layers</span></div>
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg><span class="icon-name">bar-chart</span></div>
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg><span class="icon-name">clock-check</span></div>
+      </div>
+
+      <!-- CATEGORIA: Ação & Arquivo -->
+      <div class="icon-category-title">Ação & Arquivo</div>
+      <div class="icon-grid">
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span class="icon-name">download</span></div>
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg><span class="icon-name">share</span></div>
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><polygon points="5 3 19 12 5 21 5 3"/></svg><span class="icon-name">play</span></div>
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg><span class="icon-name">file</span></div>
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg><span class="icon-name">file-text</span></div>
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg><span class="icon-name">grid-2x2</span></div>
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg><span class="icon-name">wifi</span></div>
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span class="icon-name">mail</span></div>
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.1 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 5.99 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span class="icon-name">phone</span></div>
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span class="icon-name">lock</span></div>
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg><span class="icon-name">user</span></div>
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg><span class="icon-name">settings</span></div>
+      </div>
+
+      <!-- CATEGORIA: Social -->
+      <div class="icon-category-title">Social & Plataformas</div>
+      <div class="icon-grid">
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg><span class="icon-name">instagram</span></div>
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21 2H3v16h5v4l4-4h5l4-4V2zM11 11V7M16 11V7"/></svg><span class="icon-name">twitch</span></div>
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-1.95C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 1.96C1 8.14 1 12 1 12s0 3.86.46 5.58a2.78 2.78 0 0 0 1.94 1.95C5.12 20 12 20 12 20s6.88 0 8.6-.47a2.78 2.78 0 0 0 1.94-1.95C23 15.86 23 12 23 12s0-3.86-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg><span class="icon-name">youtube</span></div>
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg><span class="icon-name">linkedin</span></div>
+        <div class="icon-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg><span class="icon-name">whatsapp</span></div>
+      </div>
+
+      <div class="ds-divider-teal" style="margin: var(--sp-12) 0 var(--sp-8);"></div>
+
+      <!-- ESCALA DE TAMANHOS -->
+      <div class="btn-group-title">Escala de Tamanhos</div>
+      <div style="background:var(--white);border:1px solid var(--border-light);border-radius:var(--r-2xl);padding:var(--sp-6) var(--sp-8);">
+        <div class="icon-size-row">
+          <div style="width:80px;font-size:var(--fs-xs);color:var(--text-tertiary);font-family:var(--font-mono);">12px · --fs-xs</div>
+          <div class="icon-size-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span class="icon-size-label">map-pin</span></div>
+          <div class="icon-size-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span class="icon-size-label">calendar</span></div>
+          <div class="icon-size-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--pink)" stroke-width="2" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><span class="icon-size-label">heart</span></div>
+          <span style="font-size:var(--fs-xs);color:var(--text-tertiary);">Inline texto, badges, chips</span>
+        </div>
+        <div class="icon-size-row">
+          <div style="width:80px;font-size:var(--fs-xs);color:var(--text-tertiary);font-family:var(--font-mono);">16px · sm</div>
+          <div class="icon-size-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" stroke-width="1.75" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span class="icon-size-label">map-pin</span></div>
+          <div class="icon-size-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.75" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span class="icon-size-label">calendar</span></div>
+          <div class="icon-size-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--pink)" stroke-width="1.75" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><span class="icon-size-label">heart</span></div>
+          <span style="font-size:var(--fs-xs);color:var(--text-tertiary);">Botões, inputs, nav links</span>
+        </div>
+        <div class="icon-size-row">
+          <div style="width:80px;font-size:var(--fs-xs);color:var(--text-tertiary);font-family:var(--font-mono);">20px · md</div>
+          <div class="icon-size-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" stroke-width="1.5" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span class="icon-size-label">map-pin</span></div>
+          <div class="icon-size-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span class="icon-size-label">calendar</span></div>
+          <div class="icon-size-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--pink)" stroke-width="1.5" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><span class="icon-size-label">heart</span></div>
+          <span style="font-size:var(--fs-xs);color:var(--text-tertiary);">Cards, listas, hero info bar</span>
+        </div>
+        <div class="icon-size-row">
+          <div style="width:80px;font-size:var(--fs-xs);color:var(--text-tertiary);font-family:var(--font-mono);">24px · lg</div>
+          <div class="icon-size-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" stroke-width="1.5" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span class="icon-size-label">map-pin</span></div>
+          <div class="icon-size-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span class="icon-size-label">calendar</span></div>
+          <div class="icon-size-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--pink)" stroke-width="1.5" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><span class="icon-size-label">heart</span></div>
+          <span style="font-size:var(--fs-xs);color:var(--text-tertiary);">Tamanho padrão · grade 24×24</span>
+        </div>
+        <div class="icon-size-row">
+          <div style="width:80px;font-size:var(--fs-xs);color:var(--text-tertiary);font-family:var(--font-mono);">32px · xl</div>
+          <div class="icon-size-item"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" stroke-width="1.25" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span class="icon-size-label">map-pin</span></div>
+          <div class="icon-size-item"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.25" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span class="icon-size-label">calendar</span></div>
+          <div class="icon-size-item"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--pink)" stroke-width="1.25" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><span class="icon-size-label">heart</span></div>
+          <span style="font-size:var(--fs-xs);color:var(--text-tertiary);">Feature icons, seções</span>
+        </div>
+        <div class="icon-size-row">
+          <div style="width:80px;font-size:var(--fs-xs);color:var(--text-tertiary);font-family:var(--font-mono);">48px · 2xl</div>
+          <div class="icon-size-item"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" stroke-width="1" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span class="icon-size-label">map-pin</span></div>
+          <div class="icon-size-item"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span class="icon-size-label">calendar</span></div>
+          <div class="icon-size-item"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--pink)" stroke-width="1" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><span class="icon-size-label">heart</span></div>
+          <span style="font-size:var(--fs-xs);color:var(--text-tertiary);">Displays, empty states, hero</span>
+        </div>
+      </div>
+
+      <div class="ds-divider-teal" style="margin: var(--sp-12) 0 var(--sp-8);"></div>
+
+      <!-- VARIANTES DE COR -->
+      <div class="btn-group-title">Variantes de Cor</div>
+      <div style="background:var(--white);border:1px solid var(--border-light);border-radius:var(--r-2xl);padding:var(--sp-6) var(--sp-8);">
+        <div class="icon-color-row">
+          <div class="icon-color-item" style="background:var(--gray-50);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" stroke-width="1.5" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span class="icon-color-label" style="color:var(--text-tertiary);">Default<br>text-secondary</span>
+          </div>
+          <div class="icon-color-item" style="background:var(--teal-light);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span class="icon-color-label" style="color:var(--teal-deeper);">Teal<br>--teal</span>
+          </div>
+          <div class="icon-color-item" style="background:var(--pink-light);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--pink)" stroke-width="1.5" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span class="icon-color-label" style="color:var(--pink-dark);">Pink<br>--pink</span>
+          </div>
+          <div class="icon-color-item" style="background:var(--navy);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span class="icon-color-label" style="color:rgba(255,255,255,0.6);">On Dark<br>white</span>
+          </div>
+          <div class="icon-color-item" style="background:var(--gradient-brand);border-radius:var(--r-lg);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span class="icon-color-label" style="color:rgba(255,255,255,0.9);">Gradient<br>bg</span>
+          </div>
+          <div class="icon-color-item" style="background:var(--gray-50);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-disabled)" stroke-width="1.5" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span class="icon-color-label" style="color:var(--text-disabled);">Disabled<br>text-disabled</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ds-divider-teal" style="margin: var(--sp-12) 0 var(--sp-8);"></div>
+
+      <!-- EXEMPLOS DE USO -->
+      <div class="btn-group-title">Exemplos de Uso no Contexto</div>
+      <div class="icon-usage-grid">
+
+        <!-- Info bar do evento -->
+        <div class="icon-usage-card">
+          <div class="icon-usage-label">Info Bar · Hero</div>
+          <div style="display:flex;flex-direction:column;gap:var(--sp-3);">
+            <div style="display:flex;align-items:center;gap:var(--sp-3);font-size:var(--fs-sm);color:var(--text-secondary);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.75" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              23 a 25 de outubro de 2025
+            </div>
+            <div style="display:flex;align-items:center;gap:var(--sp-3);font-size:var(--fs-sm);color:var(--text-secondary);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.75" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Royal Palm Hall · Campinas, SP
+            </div>
+            <div style="display:flex;align-items:center;gap:var(--sp-3);font-size:var(--fs-sm);color:var(--text-secondary);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.75" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              +1.400 médicos · 60 especialidades
+            </div>
+          </div>
+        </div>
+
+        <!-- Botão com ícone -->
+        <div class="icon-usage-card">
+          <div class="icon-usage-label">Botões com Ícone</div>
+          <div style="display:flex;flex-direction:column;gap:var(--sp-3);">
+            <button class="btn btn-teal btn-md" style="justify-content:center;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+              Garantir Ingresso
+            </button>
+            <button class="btn btn-outline-teal btn-md" style="justify-content:center;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Programação
+            </button>
+          </div>
+        </div>
+
+        <!-- Feature cards -->
+        <div class="icon-usage-card">
+          <div class="icon-usage-label">Feature Card</div>
+          <div style="display:flex;flex-direction:column;gap:var(--sp-4);">
+            <div style="display:flex;align-items:flex-start;gap:var(--sp-4);">
+              <div style="width:36px;height:36px;border-radius:var(--r-md);background:var(--teal-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-deeper)" stroke-width="1.75" stroke-linecap="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              </div>
+              <div>
+                <div style="font-size:var(--fs-sm);font-weight:var(--fw-semi);color:var(--text-primary);">Ciência de Ponta</div>
+                <div style="font-size:var(--fs-xs);color:var(--text-secondary);margin-top:2px;">Pesquisas clínicas e guidelines internacionais</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:var(--sp-4);">
+              <div style="width:36px;height:36px;border-radius:var(--r-md);background:var(--pink-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--pink-dark)" stroke-width="1.75" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <div>
+                <div style="font-size:var(--fs-sm);font-weight:var(--fw-semi);color:var(--text-primary);">+60 Especialidades</div>
+                <div style="font-size:var(--fs-xs);color:var(--text-secondary);margin-top:2px;">Networking entre médicos de todo o Brasil</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Badge com ícone -->
+        <div class="icon-usage-card">
+          <div class="icon-usage-label">Badges & Status</div>
+          <div style="display:flex;flex-direction:column;gap:var(--sp-3);align-items:flex-start;">
+            <span class="badge badge-teal" style="display:inline-flex;align-items:center;gap:5px;">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Vaga confirmada
+            </span>
+            <span class="badge badge-pink" style="display:inline-flex;align-items:center;gap:5px;">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              Últimas vagas
+            </span>
+            <span class="badge badge-gray" style="display:inline-flex;align-items:center;gap:5px;">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Em breve
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="ds-footer">
+      <div>
+        <div class="footer-brand">WeCann <em>Summit</em> — Design System</div>
+        <div style="font-family:var(--font-mono);font-size:var(--fs-xs);color:rgba(255,255,255,0.3);margin-top:4px;">
+          Tema Light · Público Médico · summit.wecann.academy
+        </div>
+      </div>
+      <div style="display:flex;gap:var(--sp-4);align-items:center;">
+        <div class="footer-version">
+          <span style="width:6px;height:6px;border-radius:50%;background:var(--teal);display:inline-block;animation:dot-pulse 2s ease-in-out infinite;"></span>
+          v1.0.0
+        </div>
+        <div class="footer-meta">2025 · WeCann Academy</div>
+      </div>
+    </footer>
+
+  </main>
+</div>
+
+<script>
+  // Active nav link on scroll
+  const links = document.querySelectorAll('.nav-link');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`.nav-link[href="#${e.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-15% 0px -80% 0px' });
+  document.querySelectorAll('[id]').forEach(el => observer.observe(el));
+
+  // Re-trigger animations on hover
+  document.querySelectorAll('.anim-card').forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      const box = card.querySelector('.anim-box');
+      if (!box) return;
+      box.style.animation = 'none';
+      void box.offsetWidth;
+      box.style.animation = '';
+    });
+  });
+</script>
+</body>
+</html>
