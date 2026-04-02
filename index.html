@@ -1,0 +1,1965 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WeCann Summit 2026 — O maior congresso médico mundial sobre Medicina Endocanabinoide</title>
+  <meta name="description" content="23 a 25 de outubro de 2026 · Royal Palm Hall, Campinas SP. O maior congresso médico mundial sobre Medicina Endocanabinoide. Mais de 1.400 médicos de 60 especialidades.">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================================
+       DESIGN TOKENS — WeCann Summit 2026
+    ============================================================ */
+    :root {
+      --teal:          #17C3B2;
+      --teal-dark:     #0EA99A;
+      --teal-deeper:   #0A877B;
+      --teal-light:    #E6F9F7;
+      --teal-mid:      #B2EDE8;
+      --pink:          #FF2D78;
+      --pink-dark:     #E0205E;
+      --pink-light:    #FFF0F5;
+      --pink-mid:      #FFB3CC;
+      --navy:          #0D1B2A;
+      --navy-mid:      #1A2E42;
+      --navy-light:    #2A4359;
+      --white:         #FFFFFF;
+      --gray-25:       #FAFBFC;
+      --gray-50:       #F5F7FA;
+      --gray-100:      #EEF1F6;
+      --gray-200:      #E2E7EF;
+      --gray-300:      #C9D1DC;
+      --gray-400:      #9BAABB;
+      --gray-500:      #6B7E92;
+      --text-primary:  #0D1B2A;
+      --text-secondary:#4A5E72;
+      --text-tertiary: #6B7E92;
+      --border-light:  #E2E7EF;
+      --border-mid:    #C9D1DC;
+      --font-body:     'DM Sans', -apple-system, sans-serif;
+      --font-mono:     'IBM Plex Mono', monospace;
+      --fs-2xs: 10px; --fs-xs: 12px; --fs-sm: 13px; --fs-base: 15px;
+      --fs-md: 18px;  --fs-lg: 22px; --fs-xl: 28px;  --fs-2xl: 34px;
+      --fs-3xl: 42px; --fs-4xl: 52px; --fs-5xl: 64px; --fs-6xl: 80px;
+      --fw-light: 300; --fw-normal: 400; --fw-medium: 500;
+      --fw-semi: 600;  --fw-bold: 700;
+      --sp-1:4px; --sp-2:8px; --sp-3:12px; --sp-4:16px; --sp-5:20px;
+      --sp-6:24px; --sp-7:28px; --sp-8:32px; --sp-10:40px; --sp-12:48px;
+      --sp-14:56px; --sp-16:64px; --sp-20:80px; --sp-24:96px; --sp-32:128px;
+      --r-sm:4px; --r-md:8px; --r-lg:12px; --r-xl:16px;
+      --r-2xl:24px; --r-3xl:32px; --r-full:9999px;
+      --shadow-sm:  0 2px 8px rgba(13,27,42,0.08), 0 1px 3px rgba(13,27,42,0.06);
+      --shadow-md:  0 4px 16px rgba(13,27,42,0.10), 0 2px 6px rgba(13,27,42,0.06);
+      --shadow-lg:  0 8px 32px rgba(13,27,42,0.12), 0 4px 12px rgba(13,27,42,0.08);
+      --shadow-xl:  0 16px 48px rgba(13,27,42,0.14), 0 6px 18px rgba(13,27,42,0.08);
+      --shadow-teal: 0 4px 20px rgba(23,195,178,0.25);
+      --gradient-brand:     linear-gradient(90deg, #17C3B2 0%, #00CFFF 30%, #9B3DC8 65%, #FF2D78 100%);
+      --gradient-brand-135: linear-gradient(135deg, #17C3B2 0%, #00CFFF 30%, #9B3DC8 65%, #FF2D78 100%);
+      --gradient-tp:        linear-gradient(90deg, #17C3B2, #FF2D78);
+      --gradient-tp-135:    linear-gradient(135deg, #17C3B2, #FF2D78);
+      --gradient-teal:      linear-gradient(135deg, #17C3B2, #0A877B);
+      --gradient-fade-navy: linear-gradient(180deg, transparent 0%, rgba(13,27,42,0.92) 100%);
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --t-base: 240ms; --t-slow: 380ms;
+      --container: 1200px;
+      --container-sm: 800px;
+    }
+
+    /* ============================================================
+       BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--white);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      font-size: var(--fs-base);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    ::selection { background: rgba(23,195,178,0.2); }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--gray-50); }
+    ::-webkit-scrollbar-thumb { background: var(--teal-mid); border-radius: 3px; }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; }
+
+    /* ============================================================
+       CONTAINER & LAYOUT
+    ============================================================ */
+    .container {
+      width: 100%;
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 var(--sp-8);
+    }
+    .container-sm {
+      width: 100%;
+      max-width: var(--container-sm);
+      margin: 0 auto;
+      padding: 0 var(--sp-8);
+    }
+
+    /* ============================================================
+       MARQUEE
+    ============================================================ */
+    .marquee-bar {
+      background: var(--gradient-brand);
+      padding: 10px 0;
+      overflow: hidden;
+    }
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 28s linear infinite;
+    }
+    .marquee-item {
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-bold);
+      color: var(--white);
+      white-space: nowrap;
+      padding: 0 var(--sp-6);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .marquee-sep { opacity: 0.7; padding: 0 var(--sp-2); }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ============================================================
+       NAVBAR
+    ============================================================ */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-light);
+      transition: box-shadow var(--t-base);
+    }
+    .navbar.scrolled { box-shadow: var(--shadow-md); }
+    .navbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      gap: var(--sp-8);
+    }
+    .navbar-logo {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-3);
+      flex-shrink: 0;
+    }
+    .logo-mark {
+      width: 36px; height: 36px;
+      border-radius: var(--r-lg);
+      background: var(--gradient-brand-135);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .logo-mark svg { color: white; }
+    .logo-text {
+      font-size: var(--fs-md);
+      font-weight: 800;
+      color: var(--text-primary);
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+    .logo-text span { color: var(--teal); }
+    .logo-year {
+      font-size: var(--fs-xs);
+      font-family: var(--font-mono);
+      color: var(--text-tertiary);
+      display: block;
+      margin-top: 2px;
+      letter-spacing: 0.08em;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-1);
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: var(--fs-sm);
+      font-weight: var(--fw-medium);
+      color: var(--text-secondary);
+      padding: var(--sp-2) var(--sp-3);
+      border-radius: var(--r-md);
+      transition: all var(--t-base) var(--ease-out);
+    }
+    .nav-links a:hover { color: var(--text-primary); background: var(--gray-50); }
+    .navbar-cta {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      gap: var(--sp-3);
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--sp-2);
+      font-family: var(--font-body);
+      font-weight: var(--fw-semi);
+      cursor: pointer;
+      border: none;
+      transition: all var(--t-base) var(--ease-out);
+      white-space: nowrap;
+      text-decoration: none;
+    }
+    .btn-sm  { font-size: var(--fs-sm);  padding: 8px var(--sp-5);  border-radius: var(--r-lg); }
+    .btn-md  { font-size: var(--fs-sm);  padding: 10px var(--sp-6); border-radius: var(--r-lg); }
+    .btn-lg  { font-size: var(--fs-base); padding: var(--sp-4) var(--sp-10); border-radius: var(--r-xl); }
+    .btn-xl  { font-size: var(--fs-md); padding: var(--sp-5) var(--sp-12); border-radius: var(--r-xl); }
+    .btn-teal {
+      background: var(--teal);
+      color: var(--white);
+      box-shadow: var(--shadow-teal);
+    }
+    .btn-teal:hover { background: var(--teal-dark); transform: translateY(-1px); box-shadow: 0 6px 24px rgba(23,195,178,0.35); }
+    .btn-gradient {
+      background: var(--gradient-brand);
+      color: var(--white);
+      box-shadow: 0 4px 20px rgba(23,195,178,0.25), 0 4px 20px rgba(255,45,120,0.15);
+    }
+    .btn-gradient:hover { filter: brightness(1.07); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(23,195,178,0.3), 0 6px 24px rgba(255,45,120,0.2); }
+    .btn-outline {
+      background: transparent;
+      color: var(--text-primary);
+      border: 1.5px solid var(--border-mid);
+    }
+    .btn-outline:hover { border-color: var(--teal); color: var(--teal-deeper); background: var(--teal-light); }
+    .btn-ghost-white {
+      background: rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.85);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .btn-ghost-white:hover { background: rgba(255,255,255,0.2); color: white; }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    .hero {
+      background: var(--navy);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg-layers {
+      position: absolute; inset: 0; pointer-events: none;
+    }
+    .hero-bg-gradient {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 65% 55% at 75% 15%, rgba(23,195,178,0.22) 0%, transparent 60%),
+        radial-gradient(ellipse 45% 50% at 5%  85%, rgba(255,45,120,0.12) 0%, transparent 55%),
+        radial-gradient(ellipse 40% 40% at 90% 80%, rgba(155,61,200,0.10) 0%, transparent 55%);
+    }
+    .hero-bg-dots {
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.045) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+    .hero-bg-lines {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 80px 80px;
+    }
+    .hero-content {
+      position: relative; z-index: 1;
+      padding: var(--sp-24) 0 var(--sp-20);
+    }
+    .hero-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--sp-2);
+      background: rgba(23,195,178,0.12);
+      border: 1px solid rgba(23,195,178,0.3);
+      border-radius: var(--r-full);
+      padding: 6px var(--sp-4) 6px var(--sp-3);
+      margin-bottom: var(--sp-8);
+    }
+    .hero-chip-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--teal);
+      animation: pulse 2.5s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%,100% { box-shadow: 0 0 0 0 rgba(23,195,178,0.4); }
+      50%      { box-shadow: 0 0 0 6px rgba(23,195,178,0); }
+    }
+    .hero-chip-text {
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-medium);
+      color: var(--teal);
+      letter-spacing: 0.06em;
+    }
+    .hero-title {
+      font-size: clamp(44px, 7vw, 88px);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 0.93;
+      letter-spacing: -0.04em;
+      margin-bottom: var(--sp-8);
+    }
+    .hero-title .grad-text {
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-desc {
+      font-size: var(--fs-md);
+      font-weight: var(--fw-light);
+      color: rgba(255,255,255,0.65);
+      max-width: 540px;
+      line-height: 1.7;
+      margin-bottom: var(--sp-10);
+    }
+    .hero-meta {
+      display: flex;
+      gap: var(--sp-8);
+      flex-wrap: wrap;
+      margin-bottom: var(--sp-10);
+    }
+    .hero-meta-item {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-3);
+    }
+    .hero-meta-icon {
+      width: 32px; height: 32px;
+      border-radius: var(--r-md);
+      background: rgba(23,195,178,0.12);
+      border: 1px solid rgba(23,195,178,0.2);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .hero-meta-icon svg { color: var(--teal); }
+    .hero-meta-text {}
+    .hero-meta-label {
+      font-size: 10px;
+      font-family: var(--font-mono);
+      color: rgba(255,255,255,0.35);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      display: block;
+    }
+    .hero-meta-value {
+      font-size: var(--fs-sm);
+      font-weight: var(--fw-medium);
+      color: rgba(255,255,255,0.85);
+      display: block;
+    }
+    .hero-actions { display: flex; gap: var(--sp-4); flex-wrap: wrap; }
+
+    /* ============================================================
+       STATS
+    ============================================================ */
+    .stats-bar {
+      background: var(--white);
+      border-bottom: 1px solid var(--border-light);
+      padding: var(--sp-10) 0;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--sp-8);
+    }
+    .stat-item {
+      text-align: center;
+      padding: var(--sp-6) var(--sp-4);
+      border-right: 1px solid var(--border-light);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-number {
+      font-size: var(--fs-4xl);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: block;
+      margin-bottom: var(--sp-2);
+    }
+    .stat-label {
+      font-size: var(--fs-sm);
+      color: var(--text-secondary);
+      font-weight: var(--fw-medium);
+    }
+    .stat-sub {
+      font-size: var(--fs-xs);
+      color: var(--text-tertiary);
+      margin-top: 2px;
+    }
+
+    /* ============================================================
+       SECTION UTILITY
+    ============================================================ */
+    .section { padding: var(--sp-24) 0; }
+    .section-alt { background: var(--gray-25); }
+    .section-dark { background: var(--navy); }
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--sp-2);
+      font-family: var(--font-mono);
+      font-size: var(--fs-xs);
+      color: var(--teal-deeper);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: var(--sp-4);
+    }
+    .section-eyebrow::before {
+      content: '';
+      width: 20px; height: 1.5px;
+      background: var(--teal);
+      border-radius: 2px;
+    }
+    .section-eyebrow-light {
+      color: rgba(23,195,178,0.8);
+    }
+    .section-eyebrow-light::before { background: var(--teal); }
+    .section-title {
+      font-size: clamp(32px, 4vw, var(--fs-4xl));
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.05;
+      color: var(--text-primary);
+      margin-bottom: var(--sp-5);
+    }
+    .section-title-light { color: var(--white); }
+    .section-title .teal { color: var(--teal); }
+    .section-title .grad {
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .section-desc {
+      font-size: var(--fs-md);
+      font-weight: var(--fw-light);
+      color: var(--text-secondary);
+      line-height: 1.75;
+      max-width: 560px;
+    }
+    .section-desc-light { color: rgba(255,255,255,0.6); }
+    .grad-divider {
+      height: 2px;
+      background: var(--gradient-brand);
+      border: none;
+      border-radius: var(--r-full);
+      margin: var(--sp-5) 0;
+      width: 48px;
+    }
+
+    /* ============================================================
+       ABOUT
+    ============================================================ */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-16);
+      align-items: center;
+    }
+    .about-visual {
+      border-radius: var(--r-3xl);
+      overflow: hidden;
+      background: var(--navy);
+      position: relative;
+      aspect-ratio: 4/3;
+    }
+    .about-visual-inner {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 60% 30%, rgba(23,195,178,0.25) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 50% at 10% 80%, rgba(255,45,120,0.12) 0%, transparent 55%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .about-visual-bg-dots {
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    .about-number-display {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+    .about-big-num {
+      font-size: clamp(80px, 12vw, 140px);
+      font-weight: 800;
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      letter-spacing: -0.05em;
+    }
+    .about-big-label {
+      font-size: var(--fs-md);
+      color: rgba(255,255,255,0.5);
+      font-weight: var(--fw-medium);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: var(--sp-3);
+    }
+    .about-features {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-5);
+      margin-top: var(--sp-10);
+    }
+    .about-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--sp-4);
+      padding: var(--sp-5);
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--r-2xl);
+      transition: all var(--t-slow) var(--ease-out);
+    }
+    .about-feature:hover {
+      border-color: var(--teal-mid);
+      box-shadow: var(--shadow-md);
+      transform: translateX(4px);
+    }
+    .about-feature-icon {
+      width: 40px; height: 40px;
+      border-radius: var(--r-xl);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .about-feature-icon-teal { background: var(--teal-light); }
+    .about-feature-icon-teal svg { color: var(--teal-deeper); }
+    .about-feature-icon-pink { background: var(--pink-light); }
+    .about-feature-icon-pink svg { color: var(--pink-dark); }
+    .about-feature-icon-navy { background: var(--gray-100); }
+    .about-feature-icon-navy svg { color: var(--navy); }
+    .about-feature-title {
+      font-size: var(--fs-base);
+      font-weight: var(--fw-semi);
+      color: var(--text-primary);
+      margin-bottom: 3px;
+    }
+    .about-feature-desc {
+      font-size: var(--fs-sm);
+      color: var(--text-secondary);
+      line-height: 1.55;
+    }
+
+    /* ============================================================
+       PILLARS / PROGRAM
+    ============================================================ */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--sp-6);
+      margin-top: var(--sp-14);
+    }
+    .pillar-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--r-3xl);
+      padding: var(--sp-10) var(--sp-8);
+      transition: all var(--t-slow) var(--ease-out);
+      position: relative;
+      overflow: hidden;
+    }
+    .pillar-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--gradient-brand);
+      border-radius: var(--r-3xl) var(--r-3xl) 0 0;
+    }
+    .pillar-card:hover {
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(23,195,178,0.2);
+      transform: translateY(-4px);
+    }
+    .pillar-num {
+      font-family: var(--font-mono);
+      font-size: var(--fs-5xl);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: var(--sp-5);
+      opacity: 0.4;
+    }
+    .pillar-title {
+      font-size: var(--fs-xl);
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      margin-bottom: var(--sp-4);
+    }
+    .pillar-desc {
+      font-size: var(--fs-base);
+      color: rgba(255,255,255,0.55);
+      line-height: 1.7;
+    }
+    .pillar-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sp-2);
+      margin-top: var(--sp-6);
+    }
+    .pillar-tag {
+      font-size: 11px;
+      font-weight: var(--fw-medium);
+      color: var(--teal);
+      background: rgba(23,195,178,0.1);
+      border: 1px solid rgba(23,195,178,0.2);
+      padding: 3px 10px;
+      border-radius: var(--r-full);
+    }
+
+    /* ============================================================
+       SPEAKERS
+    ============================================================ */
+    .speakers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: var(--sp-5);
+      margin-top: var(--sp-14);
+    }
+    .speaker-card {
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--r-2xl);
+      overflow: hidden;
+      transition: all var(--t-slow) var(--ease-out);
+      cursor: pointer;
+    }
+    .speaker-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--teal-mid);
+    }
+    .speaker-photo {
+      width: 100%;
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .sp-a { background: linear-gradient(135deg, #E6F9F7, #B2EDE8); }
+    .sp-b { background: linear-gradient(135deg, #FFF0F5, #FFD6E7); }
+    .sp-c { background: linear-gradient(135deg, #EEF1F6, #DDE3EC); }
+    .sp-d { background: linear-gradient(135deg, #FFF8E1, #FFEAA0); }
+    .sp-e { background: linear-gradient(135deg, #F0F4FF, #D6E0FF); }
+    .speaker-initials {
+      width: 68px; height: 68px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.85);
+      display: flex; align-items: center; justify-content: center;
+      font-size: var(--fs-xl);
+      font-weight: 800;
+      color: var(--text-secondary);
+      letter-spacing: -0.03em;
+      box-shadow: var(--shadow-sm);
+    }
+    .speaker-flag {
+      position: absolute;
+      top: var(--sp-3); right: var(--sp-3);
+      font-size: 18px;
+      filter: drop-shadow(0 1px 3px rgba(0,0,0,0.15));
+    }
+    .speaker-body { padding: var(--sp-4) var(--sp-5); }
+    .speaker-name {
+      font-size: var(--fs-base);
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      margin-bottom: 4px;
+    }
+    .speaker-specialty {
+      font-size: var(--fs-xs);
+      color: var(--teal-deeper);
+      font-weight: var(--fw-semi);
+      margin-bottom: 2px;
+    }
+    .speaker-country {
+      font-size: 11px;
+      color: var(--text-tertiary);
+    }
+    .speakers-more {
+      margin-top: var(--sp-10);
+      text-align: center;
+    }
+
+    /* ============================================================
+       TICKETS
+    ============================================================ */
+    .tickets-header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto var(--sp-14);
+    }
+    .tickets-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--sp-6);
+    }
+    .ticket-card {
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--r-3xl);
+      padding: var(--sp-8);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      transition: all var(--t-slow) var(--ease-out);
+    }
+    .ticket-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-xl); }
+    .ticket-top {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      border-radius: var(--r-3xl) var(--r-3xl) 0 0;
+    }
+    .ticket-top-gray { background: var(--gray-300); }
+    .ticket-top-teal { background: var(--teal); }
+    .ticket-top-grad { background: var(--gradient-brand); }
+    .ticket-card.featured {
+      border-color: rgba(23,195,178,0.4);
+      box-shadow: var(--shadow-teal);
+    }
+    .ticket-card.premium {
+      background: var(--navy);
+      border-color: transparent;
+    }
+    .ticket-badge-wrap { position: absolute; top: var(--sp-5); right: var(--sp-5); }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-semi);
+      padding: 3px 10px;
+      border-radius: var(--r-full);
+    }
+    .badge-teal  { background: var(--teal-light); color: var(--teal-deeper); border: 1px solid var(--teal-mid); }
+    .badge-grad  { background: var(--gradient-brand); color: white; font-weight: 700; }
+    .badge-pink  { background: var(--pink-light); color: var(--pink-dark); border: 1px solid var(--pink-mid); }
+    .ticket-days {
+      font-size: var(--fs-xs);
+      font-family: var(--font-mono);
+      color: var(--text-tertiary);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-top: var(--sp-5);
+      margin-bottom: var(--sp-2);
+    }
+    .ticket-premium .ticket-days { color: rgba(255,255,255,0.4); }
+    .ticket-name {
+      font-size: var(--fs-2xl);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: var(--text-primary);
+      margin-bottom: var(--sp-5);
+    }
+    .ticket-premium .ticket-name { color: var(--white); }
+    .ticket-features {
+      list-style: none;
+      flex: 1;
+      margin-bottom: var(--sp-8);
+    }
+    .ticket-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--sp-3);
+      font-size: var(--fs-sm);
+      color: var(--text-secondary);
+      padding: 7px 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .ticket-premium .ticket-feature {
+      color: rgba(255,255,255,0.65);
+      border-color: rgba(255,255,255,0.07);
+    }
+    .ticket-feature:last-child { border-bottom: none; }
+    .feat-check { color: var(--teal); flex-shrink: 0; font-size: 14px; }
+    .feat-cross  { color: var(--gray-300); flex-shrink: 0; font-size: 14px; }
+    .ticket-price-label {
+      font-size: var(--fs-xs);
+      font-family: var(--font-mono);
+      color: var(--text-tertiary);
+      letter-spacing: 0.08em;
+    }
+    .ticket-premium .ticket-price-label { color: rgba(255,255,255,0.4); }
+    .ticket-price {
+      font-size: var(--fs-4xl);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text-primary);
+      line-height: 1;
+      margin: var(--sp-2) 0 var(--sp-1);
+    }
+    .ticket-price-teal { color: var(--teal-deeper); }
+    .ticket-premium .ticket-price { color: var(--white); }
+    .ticket-installments {
+      font-size: var(--fs-xs);
+      color: var(--text-tertiary);
+      margin-bottom: var(--sp-6);
+    }
+    .ticket-premium .ticket-installments { color: rgba(255,255,255,0.35); }
+
+    /* ============================================================
+       VENUE
+    ============================================================ */
+    .venue-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-14);
+      align-items: center;
+    }
+    .venue-image {
+      border-radius: var(--r-3xl);
+      overflow: hidden;
+      background: var(--navy);
+      aspect-ratio: 4/3;
+      position: relative;
+    }
+    .venue-image-inner {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 60% at 50% 40%, rgba(23,195,178,0.18) 0%, transparent 65%),
+        linear-gradient(160deg, rgba(13,27,42,0.3) 0%, rgba(13,27,42,0.8) 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--sp-4);
+    }
+    .venue-image-bg {
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+    .venue-image-label {
+      position: relative; z-index: 1;
+      font-size: var(--fs-5xl);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+    }
+    .venue-image-sub {
+      position: relative; z-index: 1;
+      font-size: var(--fs-base);
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-family: var(--font-mono);
+    }
+    .venue-details {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-6);
+      margin-top: var(--sp-10);
+    }
+    .venue-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--sp-4);
+    }
+    .venue-detail-icon {
+      width: 40px; height: 40px;
+      border-radius: var(--r-xl);
+      background: var(--teal-light);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .venue-detail-icon svg { color: var(--teal-deeper); }
+    .venue-detail-title {
+      font-size: var(--fs-sm);
+      font-weight: var(--fw-semi);
+      color: var(--text-primary);
+      margin-bottom: 2px;
+    }
+    .venue-detail-value {
+      font-size: var(--fs-sm);
+      color: var(--text-secondary);
+    }
+
+    /* ============================================================
+       SPONSORS
+    ============================================================ */
+    .sponsor-tier { margin-bottom: var(--sp-10); }
+    .sponsor-tier-header {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-4);
+      margin-bottom: var(--sp-6);
+    }
+    .sponsor-tier-label {
+      font-size: var(--fs-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 4px 12px;
+      border-radius: var(--r-full);
+      white-space: nowrap;
+    }
+    .tier-diamond { background: linear-gradient(135deg,#C9D8FF,#EEF3FF); color:#1A3ABA; }
+    .tier-gold    { background: linear-gradient(135deg,#FFEAA0,#F5C842); color:#5C3A00; }
+    .tier-silver  { background: linear-gradient(135deg,#E8ECF0,#C5CDD7); color:#3A4856; }
+    .tier-inst    { background: var(--gray-100); color: var(--text-secondary); }
+    .sponsor-line { flex: 1; height: 1px; background: var(--border-light); }
+    .sponsor-logos { display: flex; flex-wrap: wrap; gap: var(--sp-4); }
+    .sponsor-logo {
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--r-2xl);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--t-base) var(--ease-out);
+      font-size: var(--fs-base);
+      font-weight: var(--fw-semi);
+      color: var(--text-tertiary);
+      letter-spacing: -0.01em;
+    }
+    .sponsor-logo:hover { border-color: var(--teal-mid); box-shadow: var(--shadow-sm); transform: translateY(-2px); }
+    .sl-xl { width: 200px; height: 80px; }
+    .sl-lg { width: 155px; height: 66px; font-size: var(--fs-sm); }
+    .sl-md { width: 128px; height: 54px; font-size: var(--fs-sm); }
+    .sl-sm { width: 108px; height: 46px; font-size: var(--fs-xs); }
+
+    /* ============================================================
+       FAQ
+    ============================================================ */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-3);
+      margin-top: var(--sp-10);
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .faq-item {
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--r-2xl);
+      overflow: hidden;
+      transition: box-shadow var(--t-base);
+    }
+    .faq-item:hover { box-shadow: var(--shadow-sm); }
+    .faq-question {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--sp-4);
+      padding: var(--sp-5) var(--sp-6);
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      font-family: var(--font-body);
+      font-size: var(--fs-base);
+      font-weight: var(--fw-semi);
+      color: var(--text-primary);
+      transition: color var(--t-fast);
+    }
+    .faq-question:hover { color: var(--teal-deeper); }
+    .faq-icon {
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      background: var(--gray-100);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      transition: all var(--t-base) var(--ease-out);
+    }
+    .faq-item.open .faq-icon {
+      background: var(--teal-light);
+      transform: rotate(45deg);
+    }
+    .faq-item.open .faq-icon svg { color: var(--teal-deeper); }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height var(--t-slow) var(--ease-out);
+    }
+    .faq-item.open .faq-answer { max-height: 240px; }
+    .faq-answer-inner {
+      padding: 0 var(--sp-6) var(--sp-6);
+      font-size: var(--fs-base);
+      color: var(--text-secondary);
+      line-height: 1.7;
+      border-top: 1px solid var(--border-light);
+      padding-top: var(--sp-5);
+    }
+
+    /* ============================================================
+       CTA SECTION
+    ============================================================ */
+    .cta-section {
+      padding: var(--sp-24) 0;
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-bg {
+      position: absolute; inset: 0; pointer-events: none;
+    }
+    .cta-bg-grad {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 70% at 50% 50%, rgba(23,195,178,0.15) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 40% at 10% 90%, rgba(255,45,120,0.10) 0%, transparent 55%);
+    }
+    .cta-bg-dots {
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+    .cta-content {
+      position: relative; z-index: 1;
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .cta-title {
+      font-size: clamp(36px, 5vw, var(--fs-4xl));
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: var(--white);
+      line-height: 1.05;
+      margin-bottom: var(--sp-5);
+    }
+    .cta-desc {
+      font-size: var(--fs-md);
+      color: rgba(255,255,255,0.55);
+      line-height: 1.7;
+      margin-bottom: var(--sp-10);
+    }
+    .cta-actions { display: flex; gap: var(--sp-4); justify-content: center; flex-wrap: wrap; }
+    .cta-note {
+      margin-top: var(--sp-5);
+      font-size: var(--fs-xs);
+      color: rgba(255,255,255,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--sp-2);
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    .footer {
+      background: var(--navy);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: var(--sp-16) 0 var(--sp-10);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: var(--sp-12);
+      margin-bottom: var(--sp-14);
+    }
+    .footer-brand {}
+    .footer-brand-logo {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-3);
+      margin-bottom: var(--sp-5);
+    }
+    .footer-brand-name {
+      font-size: var(--fs-lg);
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.03em;
+    }
+    .footer-brand-name span { color: var(--teal); }
+    .footer-brand-desc {
+      font-size: var(--fs-sm);
+      color: rgba(255,255,255,0.4);
+      line-height: 1.65;
+      margin-bottom: var(--sp-6);
+    }
+    .footer-social {
+      display: flex;
+      gap: var(--sp-3);
+    }
+    .footer-social-link {
+      width: 36px; height: 36px;
+      border-radius: var(--r-lg);
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.5);
+      transition: all var(--t-base) var(--ease-out);
+    }
+    .footer-social-link:hover {
+      background: rgba(23,195,178,0.15);
+      border-color: rgba(23,195,178,0.3);
+      color: var(--teal);
+    }
+    .footer-col-title {
+      font-size: var(--fs-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: var(--sp-5);
+    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: var(--sp-3); }
+    .footer-links a {
+      font-size: var(--fs-sm);
+      color: rgba(255,255,255,0.5);
+      transition: color var(--t-fast);
+    }
+    .footer-links a:hover { color: var(--teal); }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--sp-4);
+      padding-top: var(--sp-8);
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .footer-copy {
+      font-size: var(--fs-xs);
+      color: rgba(255,255,255,0.25);
+    }
+    .footer-bottom-links {
+      display: flex;
+      gap: var(--sp-6);
+    }
+    .footer-bottom-links a {
+      font-size: var(--fs-xs);
+      color: rgba(255,255,255,0.25);
+      transition: color var(--t-fast);
+    }
+    .footer-bottom-links a:hover { color: var(--teal); }
+    .footer-grad-line {
+      height: 3px;
+      background: var(--gradient-brand);
+      border: none;
+    }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 1024px) {
+      .about-grid   { grid-template-columns: 1fr; gap: var(--sp-10); }
+      .venue-grid   { grid-template-columns: 1fr; gap: var(--sp-10); }
+      .pillars-grid { grid-template-columns: 1fr 1fr; }
+      .tickets-grid { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; }
+      .footer-grid  { grid-template-columns: 1fr 1fr; gap: var(--sp-10); }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .stat-item { border-right: none; border-bottom: 1px solid var(--border-light); }
+      .stat-item:nth-child(2n) { border-right: none; }
+      .pillars-grid { grid-template-columns: 1fr; }
+      .speakers-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MARQUEE -->
+  <div class="marquee-bar" role="marquee">
+    <div class="marquee-track" aria-hidden="true">
+      <span class="marquee-item">WeCann Summit 2026</span><span class="marquee-item marquee-sep">✦</span>
+      <span class="marquee-item">23 · 24 · 25 de outubro</span><span class="marquee-item marquee-sep">✦</span>
+      <span class="marquee-item">Royal Palm Hall · Campinas SP</span><span class="marquee-item marquee-sep">✦</span>
+      <span class="marquee-item">Medicina Endocanabinoide</span><span class="marquee-item marquee-sep">✦</span>
+      <span class="marquee-item">+1.400 Médicos</span><span class="marquee-item marquee-sep">✦</span>
+      <span class="marquee-item">60+ Especialidades</span><span class="marquee-item marquee-sep">✦</span>
+      <span class="marquee-item">WeCann Summit 2026</span><span class="marquee-item marquee-sep">✦</span>
+      <span class="marquee-item">23 · 24 · 25 de outubro</span><span class="marquee-item marquee-sep">✦</span>
+      <span class="marquee-item">Royal Palm Hall · Campinas SP</span><span class="marquee-item marquee-sep">✦</span>
+      <span class="marquee-item">Medicina Endocanabinoide</span><span class="marquee-item marquee-sep">✦</span>
+      <span class="marquee-item">+1.400 Médicos</span><span class="marquee-item marquee-sep">✦</span>
+      <span class="marquee-item">60+ Especialidades</span><span class="marquee-item marquee-sep">✦</span>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <header class="navbar" id="navbar">
+    <div class="container">
+      <nav class="navbar-inner">
+        <a href="#" class="navbar-logo">
+          <div class="logo-mark">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <path d="M9 16C9 16 3 12.2 3 8C3 5.2 5.8 3 9 3C12.2 3 15 5.2 15 8C15 12.2 9 16 9 16Z" fill="white" opacity="0.9"/>
+              <path d="M9 3V16M6 7.5C6 7.5 4 9 3.5 11M12 7.5C12 7.5 14 9 14.5 11" stroke="rgba(13,27,42,0.4)" stroke-width="1" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <div class="logo-text">We<span>Cann</span></div>
+            <span class="logo-year">Summit 2026</span>
+          </div>
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#programacao">Programação</a></li>
+          <li><a href="#palestrantes">Palestrantes</a></li>
+          <li><a href="#ingressos">Ingressos</a></li>
+          <li><a href="#local">Local</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+
+        <div class="navbar-cta">
+          <a href="#ingressos" class="btn btn-teal btn-sm">Garantir Ingresso</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg-layers">
+      <div class="hero-bg-gradient"></div>
+      <div class="hero-bg-dots"></div>
+      <div class="hero-bg-lines"></div>
+    </div>
+    <div class="container hero-content">
+      <div class="hero-chip">
+        <div class="hero-chip-dot"></div>
+        <span class="hero-chip-text">O maior congresso médico mundial sobre Medicina Endocanabinoide</span>
+      </div>
+
+      <h1 class="hero-title">
+        WeCann<br>
+        <span class="grad-text">Summit</span><br>
+        2026
+      </h1>
+
+      <p class="hero-desc">
+        Três dias de ciência, conexões e transformação clínica. Reúna-se com os maiores especialistas mundiais em Medicina Endocanabinoide.
+      </p>
+
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <div class="hero-meta-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <div class="hero-meta-text">
+            <span class="hero-meta-label">Data</span>
+            <span class="hero-meta-value">23 a 25 de outubro de 2026</span>
+          </div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="hero-meta-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="hero-meta-text">
+            <span class="hero-meta-label">Local</span>
+            <span class="hero-meta-value">Royal Palm Hall · Campinas, SP</span>
+          </div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="hero-meta-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="hero-meta-text">
+            <span class="hero-meta-label">Público</span>
+            <span class="hero-meta-value">+1.400 médicos · 60+ especialidades</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-actions">
+        <a href="#ingressos" class="btn btn-gradient btn-lg">Garantir Meu Ingresso</a>
+        <a href="#programacao" class="btn btn-ghost-white btn-lg">Ver Programação</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-bar">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span class="stat-number">+1.400</span>
+          <div class="stat-label">Médicos</div>
+          <div class="stat-sub">na edição anterior</div>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">60+</span>
+          <div class="stat-label">Especialidades</div>
+          <div class="stat-sub">representadas</div>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">3</span>
+          <div class="stat-label">Dias de Congresso</div>
+          <div class="stat-sub">imersão total</div>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">40+</span>
+          <div class="stat-label">Palestrantes</div>
+          <div class="stat-sub">de 9 países</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOBRE -->
+  <section class="section" id="sobre">
+    <div class="container">
+      <div class="about-grid">
+        <div>
+          <div class="section-eyebrow">Sobre o evento</div>
+          <h2 class="section-title">O congresso que <span class="teal">transforma</span> a prática clínica</h2>
+          <hr class="grad-divider">
+          <p class="section-desc">
+            O WeCann Summit é o maior evento médico-científico do mundo dedicado exclusivamente à Medicina Endocanabinoide. Criado para médicos, por médicos — com foco em evidência clínica, protocolos práticos e atualização científica de ponta.
+          </p>
+
+          <div class="about-features">
+            <div class="about-feature">
+              <div class="about-feature-icon about-feature-icon-teal">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              </div>
+              <div>
+                <div class="about-feature-title">Ciência de Ponta</div>
+                <div class="about-feature-desc">Pesquisas clínicas internacionais, guidelines e casos clínicos apresentados pelos maiores especialistas do mundo.</div>
+              </div>
+            </div>
+            <div class="about-feature">
+              <div class="about-feature-icon about-feature-icon-pink">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <div>
+                <div class="about-feature-title">Networking Médico</div>
+                <div class="about-feature-desc">Conexão real com mais de 1.400 médicos de 60 especialidades. Construa sua rede clínica e troque experiências.</div>
+              </div>
+            </div>
+            <div class="about-feature">
+              <div class="about-feature-icon about-feature-icon-navy">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+              </div>
+              <div>
+                <div class="about-feature-title">Atualização Certificada</div>
+                <div class="about-feature-desc">Certificado de participação homologado. Créditos para programas de educação continuada em medicina.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-visual">
+          <div class="about-visual-bg-dots"></div>
+          <div class="about-visual-inner">
+            <div class="about-number-display">
+              <div class="about-big-num">6ª</div>
+              <div class="about-big-label">Edição Mundial</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAMAÇÃO / PILLARS -->
+  <section class="section section-dark" id="programacao">
+    <div class="container">
+      <div style="max-width: 560px;">
+        <div class="section-eyebrow section-eyebrow-light">Programação</div>
+        <h2 class="section-title section-title-light">Três eixos de <span style="background:var(--gradient-brand);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">conhecimento</span></h2>
+        <p class="section-desc section-desc-light">
+          Cada dia do WeCann Summit é estruturado em torno de um eixo temático, garantindo profundidade clínica e aplicabilidade imediata.
+        </p>
+      </div>
+
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <div class="pillar-num">01</div>
+          <div class="pillar-title">Fundamentos Clínicos</div>
+          <div class="pillar-desc">Sistema endocanabinoide, farmacologia, evidências atuais e protocolos de prescrição seguros e eficazes.</div>
+          <div class="pillar-tags">
+            <span class="pillar-tag">Farmacologia</span>
+            <span class="pillar-tag">SEC</span>
+            <span class="pillar-tag">Protocolos</span>
+            <span class="pillar-tag">Dosagem</span>
+          </div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-num">02</div>
+          <div class="pillar-title">Especialidades e Casos</div>
+          <div class="pillar-desc">Aplicação clínica por especialidade: neurologia, oncologia, psiquiatria, dor crônica, pediatria e muito mais.</div>
+          <div class="pillar-tags">
+            <span class="pillar-tag">Neurologia</span>
+            <span class="pillar-tag">Oncologia</span>
+            <span class="pillar-tag">Dor Crônica</span>
+            <span class="pillar-tag">Pediatria</span>
+          </div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-num">03</div>
+          <div class="pillar-title">Fronteiras da Pesquisa</div>
+          <div class="pillar-desc">Ensaios clínicos em andamento, novas formulações, regulação e o futuro da cannabis medicinal no Brasil e no mundo.</div>
+          <div class="pillar-tags">
+            <span class="pillar-tag">Pesquisa</span>
+            <span class="pillar-tag">Regulação</span>
+            <span class="pillar-tag">Inovação</span>
+            <span class="pillar-tag">ANVISA</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PALESTRANTES -->
+  <section class="section section-alt" id="palestrantes">
+    <div class="container">
+      <div style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:var(--sp-6);">
+        <div>
+          <div class="section-eyebrow">Palestrantes</div>
+          <h2 class="section-title">Os maiores <span class="teal">especialistas</span><br>do mundo</h2>
+        </div>
+        <a href="#" class="btn btn-outline btn-md">Ver todos os palestrantes</a>
+      </div>
+
+      <div class="speakers-grid">
+        <div class="speaker-card">
+          <div class="speaker-photo sp-a">
+            <div class="speaker-initials">AS</div>
+            <span class="speaker-flag">🇬🇧</span>
+          </div>
+          <div class="speaker-body">
+            <div class="speaker-name">Anne Schlag</div>
+            <div class="speaker-specialty">Psiquiatria & Neurociências</div>
+            <div class="speaker-country">UK Medical Cannabis Registry</div>
+          </div>
+        </div>
+        <div class="speaker-card">
+          <div class="speaker-photo sp-b">
+            <div class="speaker-initials">JT</div>
+            <span class="speaker-flag">🇺🇸</span>
+          </div>
+          <div class="speaker-body">
+            <div class="speaker-name">Joe Tafur</div>
+            <div class="speaker-specialty">Medicina Integrativa</div>
+            <div class="speaker-country">Modern Spirit · EUA</div>
+          </div>
+        </div>
+        <div class="speaker-card">
+          <div class="speaker-photo sp-c">
+            <div class="speaker-initials">FG</div>
+            <span class="speaker-flag">🇩🇪</span>
+          </div>
+          <div class="speaker-body">
+            <div class="speaker-name">Franjo Grotenhermen</div>
+            <div class="speaker-specialty">Medicina da Cannabis</div>
+            <div class="speaker-country">IACM · Alemanha</div>
+          </div>
+        </div>
+        <div class="speaker-card">
+          <div class="speaker-photo sp-d">
+            <div class="speaker-initials">KM</div>
+            <span class="speaker-flag">🇩🇪</span>
+          </div>
+          <div class="speaker-body">
+            <div class="speaker-name">Kirsten Müller-Vahl</div>
+            <div class="speaker-specialty">Neurologia · Tourette</div>
+            <div class="speaker-country">Hannover Medical School</div>
+          </div>
+        </div>
+        <div class="speaker-card">
+          <div class="speaker-photo sp-a">
+            <div class="speaker-initials">PP</div>
+            <span class="speaker-flag">🇨🇴</span>
+          </div>
+          <div class="speaker-body">
+            <div class="speaker-name">Paola Pineda</div>
+            <div class="speaker-specialty">Oncologia Clínica</div>
+            <div class="speaker-country">Fundación Canna</div>
+          </div>
+        </div>
+        <div class="speaker-card">
+          <div class="speaker-photo sp-e">
+            <div class="speaker-initials">BB</div>
+            <span class="speaker-flag">🇺🇸</span>
+          </div>
+          <div class="speaker-body">
+            <div class="speaker-name">Babak Baban</div>
+            <div class="speaker-specialty">Imunologia</div>
+            <div class="speaker-country">Augusta University · EUA</div>
+          </div>
+        </div>
+        <div class="speaker-card">
+          <div class="speaker-photo sp-b">
+            <div class="speaker-initials">RF</div>
+            <span class="speaker-flag">🇧🇷</span>
+          </div>
+          <div class="speaker-body">
+            <div class="speaker-name">Ricardo Ferreira</div>
+            <div class="speaker-specialty">Endocrinologia</div>
+            <div class="speaker-country">ABRAN · Brasil</div>
+          </div>
+        </div>
+        <div class="speaker-card">
+          <div class="speaker-photo sp-c">
+            <div class="speaker-initials">JB</div>
+            <span class="speaker-flag">🇪🇸</span>
+          </div>
+          <div class="speaker-body">
+            <div class="speaker-name">Jose Carlos Bouso</div>
+            <div class="speaker-specialty">Farmacologia Clínica</div>
+            <div class="speaker-country">ICEERS · Espanha</div>
+          </div>
+        </div>
+        <div class="speaker-card" style="background:var(--navy); border-color:transparent; display:flex; align-items:center; justify-content:center; min-height:220px; flex-direction:column; gap:var(--sp-3);">
+          <span style="font-size:var(--fs-2xl); font-weight:800; color:rgba(255,255,255,0.15); letter-spacing:-0.03em;">+32</span>
+          <span style="font-size:var(--fs-sm); color:rgba(255,255,255,0.4); text-align:center;">palestrantes confirmados</span>
+          <a href="#" style="font-size:var(--fs-xs);color:var(--teal);font-weight:600;margin-top:4px;">Ver todos →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INGRESSOS -->
+  <section class="section" id="ingressos">
+    <div class="container">
+      <div class="tickets-header">
+        <div class="section-eyebrow" style="justify-content:center;">Ingressos</div>
+        <h2 class="section-title" style="text-align:center;">Escolha sua <span class="grad">experiência</span></h2>
+        <p class="section-desc" style="text-align:center;margin:0 auto;">Três opções para diferentes perfis. Todos os ingressos incluem acesso ao conteúdo científico e certificado de participação.</p>
+      </div>
+
+      <div class="tickets-grid">
+        <!-- Standard Day -->
+        <div class="ticket-card">
+          <div class="ticket-top ticket-top-gray"></div>
+          <div class="ticket-days">1 dia</div>
+          <div class="ticket-name">Standard Day</div>
+          <ul class="ticket-features">
+            <li class="ticket-feature"><span class="feat-check">✓</span> Acesso a 1 dia do evento</li>
+            <li class="ticket-feature"><span class="feat-check">✓</span> Certificado de participação</li>
+            <li class="ticket-feature"><span class="feat-check">✓</span> Material digital</li>
+            <li class="ticket-feature"><span class="feat-cross">–</span> <span style="color:var(--text-disabled)">Comunidade WeCann</span></li>
+            <li class="ticket-feature"><span class="feat-cross">–</span> <span style="color:var(--text-disabled)">Sessões exclusivas</span></li>
+          </ul>
+          <div class="ticket-price-label">a partir de</div>
+          <div class="ticket-price">R$997</div>
+          <div class="ticket-installments">12× de R$83,08 sem juros</div>
+          <a href="#" class="btn btn-outline btn-md" style="width:100%;justify-content:center;">Selecionar</a>
+        </div>
+
+        <!-- Standard 3 dias -->
+        <div class="ticket-card featured">
+          <div class="ticket-top ticket-top-teal"></div>
+          <div class="ticket-badge-wrap"><span class="badge badge-teal">Mais Popular</span></div>
+          <div class="ticket-days">3 dias</div>
+          <div class="ticket-name">Standard</div>
+          <ul class="ticket-features">
+            <li class="ticket-feature"><span class="feat-check">✓</span> Acesso aos 3 dias</li>
+            <li class="ticket-feature"><span class="feat-check">✓</span> Certificado de participação</li>
+            <li class="ticket-feature"><span class="feat-check">✓</span> Material digital completo</li>
+            <li class="ticket-feature"><span class="feat-check">✓</span> Comunidade (com desconto)</li>
+            <li class="ticket-feature"><span class="feat-cross">–</span> <span style="color:var(--text-disabled)">Sessões exclusivas</span></li>
+          </ul>
+          <div class="ticket-price-label">a partir de</div>
+          <div class="ticket-price ticket-price-teal">R$1.297</div>
+          <div class="ticket-installments">12× de R$108,08 sem juros</div>
+          <a href="#" class="btn btn-teal btn-md" style="width:100%;justify-content:center;">Selecionar</a>
+        </div>
+
+        <!-- Experience -->
+        <div class="ticket-card premium ticket-premium">
+          <div class="ticket-top ticket-top-grad"></div>
+          <div class="ticket-badge-wrap"><span class="badge badge-grad">Premium</span></div>
+          <div class="ticket-days">3 dias</div>
+          <div class="ticket-name">Experience</div>
+          <ul class="ticket-features">
+            <li class="ticket-feature"><span class="feat-check">✓</span> Acesso VIP aos 3 dias</li>
+            <li class="ticket-feature"><span class="feat-check">✓</span> Certificado de participação</li>
+            <li class="ticket-feature"><span class="feat-check">✓</span> Material digital premium</li>
+            <li class="ticket-feature"><span class="feat-check">✓</span> Comunidade — 1 ano incluso</li>
+            <li class="ticket-feature"><span class="feat-check" style="color:#FFD700">✓</span> <span style="color:rgba(255,255,255,0.9)">Sessões exclusivas VIP</span></li>
+          </ul>
+          <div class="ticket-price-label">a partir de</div>
+          <div class="ticket-price">R$2.897</div>
+          <div class="ticket-installments">12× de R$241,42 sem juros</div>
+          <a href="#" class="btn btn-gradient btn-md" style="width:100%;justify-content:center;">Selecionar Experience</a>
+        </div>
+      </div>
+
+      <p style="text-align:center;font-size:var(--fs-xs);color:var(--text-tertiary);margin-top:var(--sp-6);">
+        * Preços sujeitos a alteração conforme lote. Parcelamento via cartão de crédito. Consulte condições completas.
+      </p>
+    </div>
+  </section>
+
+  <!-- LOCAL -->
+  <section class="section section-alt" id="local">
+    <div class="container">
+      <div class="venue-grid">
+        <div>
+          <div class="section-eyebrow">Local</div>
+          <h2 class="section-title">Royal Palm Hall<br><span class="teal">Campinas, SP</span></h2>
+          <hr class="grad-divider">
+          <p class="section-desc">Um dos mais modernos centros de convenções do Brasil, com infraestrutura completa para grandes congressos científicos.</p>
+
+          <div class="venue-details">
+            <div class="venue-detail">
+              <div class="venue-detail-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <div class="venue-detail-title">Endereço</div>
+                <div class="venue-detail-value">Av. Dr. Moraes Sales, 1195 — Campinas, SP · CEP 13010-001</div>
+              </div>
+            </div>
+            <div class="venue-detail">
+              <div class="venue-detail-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              </div>
+              <div>
+                <div class="venue-detail-title">Datas</div>
+                <div class="venue-detail-value">23, 24 e 25 de outubro de 2026 · Credenciamento a partir das 8h</div>
+              </div>
+            </div>
+            <div class="venue-detail">
+              <div class="venue-detail-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              </div>
+              <div>
+                <div class="venue-detail-title">Hospedagem</div>
+                <div class="venue-detail-value">Hotéis parceiros com tarifas especiais. Pacotes de viagem com a Ultravel.</div>
+              </div>
+            </div>
+            <div class="venue-detail">
+              <div class="venue-detail-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              </div>
+              <div>
+                <div class="venue-detail-title">Como Chegar</div>
+                <div class="venue-detail-value">90 km de São Paulo · Fácil acesso pela Rodovia Anhanguera ou Bandeirantes.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="venue-image">
+          <div class="venue-image-bg"></div>
+          <div class="venue-image-inner">
+            <div class="venue-image-label">Royal<br>Palm</div>
+            <div class="venue-image-sub">Campinas · SP</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PATROCINADORES -->
+  <section class="section" id="patrocinadores">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:var(--sp-14);">
+        <div class="section-eyebrow" style="justify-content:center;">Patrocinadores</div>
+        <h2 class="section-title" style="text-align:center;">Apoio de líderes do <span class="teal">setor</span></h2>
+      </div>
+
+      <div class="sponsor-tier">
+        <div class="sponsor-tier-header">
+          <span class="sponsor-tier-label tier-diamond">◆ Diamond</span>
+          <div class="sponsor-line"></div>
+        </div>
+        <div class="sponsor-logos">
+          <div class="sponsor-logo sl-xl">USA Hemp Pharmaceuticals</div>
+        </div>
+      </div>
+
+      <div class="sponsor-tier">
+        <div class="sponsor-tier-header">
+          <span class="sponsor-tier-label tier-gold">★ Gold</span>
+          <div class="sponsor-line"></div>
+        </div>
+        <div class="sponsor-logos">
+          <div class="sponsor-logo sl-lg">Mantecorp</div>
+          <div class="sponsor-logo sl-lg">Aché</div>
+          <div class="sponsor-logo sl-lg">Entourage</div>
+        </div>
+      </div>
+
+      <div class="sponsor-tier">
+        <div class="sponsor-tier-header">
+          <span class="sponsor-tier-label tier-silver">● Silver</span>
+          <div class="sponsor-line"></div>
+        </div>
+        <div class="sponsor-logos">
+          <div class="sponsor-logo sl-md">Remederi</div>
+          <div class="sponsor-logo sl-md">HealthMeds</div>
+          <div class="sponsor-logo sl-md">Sensilabs</div>
+          <div class="sponsor-logo sl-md">Alma Lab</div>
+          <div class="sponsor-logo sl-md">CR Wellness</div>
+          <div class="sponsor-logo sl-md">FarmaUSA</div>
+          <div class="sponsor-logo sl-md">NHG</div>
+          <div class="sponsor-logo sl-md">Endogen</div>
+        </div>
+      </div>
+
+      <div class="sponsor-tier" style="margin-bottom:0;">
+        <div class="sponsor-tier-header">
+          <span class="sponsor-tier-label tier-inst">Apoio Institucional</span>
+          <div class="sponsor-line"></div>
+        </div>
+        <div class="sponsor-logos">
+          <div class="sponsor-logo sl-sm">LACM</div>
+          <div class="sponsor-logo sl-sm">ABMFR</div>
+          <div class="sponsor-logo sl-sm">SBED</div>
+          <div class="sponsor-logo sl-sm">CABSIN</div>
+          <div class="sponsor-logo sl-sm">ABRAN</div>
+          <div class="sponsor-logo sl-sm">CannaKeys</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section-alt" id="faq">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:var(--sp-6);">
+        <div class="section-eyebrow" style="justify-content:center;">FAQ</div>
+        <h2 class="section-title" style="text-align:center;">Dúvidas <span class="teal">frequentes</span></h2>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question">
+            O evento é exclusivo para médicos?
+            <div class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Sim. O WeCann Summit é um congresso médico-científico destinado exclusivamente a médicos e profissionais de saúde. Para adquirir o ingresso é necessário apresentar o número do CRM ou registro profissional equivalente.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            Qual a diferença entre os ingressos Standard e Experience?
+            <div class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              O ingresso Experience inclui tudo do Standard, mais acesso a sessões VIP com palestrantes internacionais, área exclusiva no evento e 1 ano de acesso à Comunidade WeCann, com conteúdo científico continuado.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            O congresso emite certificado de participação?
+            <div class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Sim. Todos os participantes recebem certificado digital de participação com carga horária. O certificado é enviado por e-mail após o evento.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            Como funciona o pagamento parcelado?
+            <div class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              O parcelamento em até 12× sem juros está disponível via cartão de crédito. Também aceitamos boleto bancário (à vista) e PIX. Os preços variam conforme o lote — quanto antes você adquirir, menor o valor.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            Há pacotes de hospedagem e transporte?
+            <div class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Sim. A Ultravel, agência parceira oficial do WeCann Summit, oferece pacotes completos de hospedagem e transporte com tarifas especiais. Entre em contato via WhatsApp para montar o melhor pacote para você.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-section">
+    <div class="cta-bg">
+      <div class="cta-bg-grad"></div>
+      <div class="cta-bg-dots"></div>
+    </div>
+    <div class="container cta-content">
+      <h2 class="cta-title">Garanta sua vaga no<br>WeCann Summit 2026</h2>
+      <p class="cta-desc">Os ingressos têm vagas limitadas e os preços aumentam conforme o lote. Não espere para garantir sua participação no maior congresso médico mundial sobre Medicina Endocanabinoide.</p>
+      <div class="cta-actions">
+        <a href="#ingressos" class="btn btn-gradient btn-xl">Comprar Ingresso</a>
+        <a href="https://wa.me/5519999999999" class="btn btn-ghost-white btn-xl" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          Falar no WhatsApp
+        </a>
+      </div>
+      <div class="cta-note">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Pagamento seguro · Certificado incluso · Satisfação garantida
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <hr class="footer-grad-line">
+    <div class="container" style="padding-top:var(--sp-14);">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-brand-logo">
+            <div class="logo-mark" style="width:32px;height:32px;">
+              <svg width="16" height="16" viewBox="0 0 18 18" fill="none"><path d="M9 16C9 16 3 12.2 3 8C3 5.2 5.8 3 9 3C12.2 3 15 5.2 15 8C15 12.2 9 16 9 16Z" fill="white" opacity="0.9"/></svg>
+            </div>
+            <span class="footer-brand-name">We<span>Cann</span> Summit 2026</span>
+          </div>
+          <p class="footer-brand-desc">O maior congresso médico mundial sobre Medicina Endocanabinoide. Ciência, conexão e transformação clínica em três dias.</p>
+          <div class="footer-social">
+            <a href="https://instagram.com/wecann.summit" class="footer-social-link" target="_blank" aria-label="Instagram">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="https://youtube.com" class="footer-social-link" target="_blank" aria-label="YouTube">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-1.95C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 1.96C1 8.14 1 12 1 12s0 3.86.46 5.58a2.78 2.78 0 0 0 1.94 1.95C5.12 20 12 20 12 20s6.88 0 8.6-.47a2.78 2.78 0 0 0 1.94-1.95C23 15.86 23 12 23 12s0-3.86-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+            </a>
+            <a href="https://linkedin.com" class="footer-social-link" target="_blank" aria-label="LinkedIn">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Evento</div>
+          <ul class="footer-links">
+            <li><a href="#sobre">Sobre o Summit</a></li>
+            <li><a href="#programacao">Programação</a></li>
+            <li><a href="#palestrantes">Palestrantes</a></li>
+            <li><a href="#local">Local</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Ingressos</div>
+          <ul class="footer-links">
+            <li><a href="#ingressos">Standard Day</a></li>
+            <li><a href="#ingressos">Standard</a></li>
+            <li><a href="#ingressos">Experience</a></li>
+            <li><a href="#">Grupos</a></li>
+            <li><a href="#">Política de Reembolso</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Contato</div>
+          <ul class="footer-links">
+            <li><a href="mailto:summit@wecann.academy">summit@wecann.academy</a></li>
+            <li><a href="https://wa.me/5519999999999">WhatsApp</a></li>
+            <li><a href="https://instagram.com/wecann.summit">@wecann.summit</a></li>
+            <li><a href="#">Patrocínio</a></li>
+            <li><a href="#">Imprensa</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span class="footer-copy">© 2026 WeCann Academy. Todos os direitos reservados.</span>
+        <div class="footer-bottom-links">
+          <a href="#">Termos de Uso</a>
+          <a href="#">Privacidade</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar scroll shadow
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 20);
+    }, { passive: true });
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (!target) return;
+        e.preventDefault();
+        const offset = 80;
+        window.scrollTo({ top: target.offsetTop - offset, behavior: 'smooth' });
+      });
+    });
+
+    // Counter animation on stats
+    const counters = document.querySelectorAll('.stat-number');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const raw = el.textContent.replace(/[^0-9]/g, '');
+        if (!raw) return;
+        const target = parseInt(raw);
+        const prefix = el.textContent.match(/^[^0-9]*/)[0];
+        const suffix = el.textContent.replace(/^[^0-9]*[0-9]+/, '');
+        let current = 0;
+        const step = Math.ceil(target / 50);
+        const timer = setInterval(() => {
+          current = Math.min(current + step, target);
+          el.textContent = prefix + current.toLocaleString('pt-BR') + suffix;
+          if (current >= target) clearInterval(timer);
+        }, 30);
+        observer.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(c => observer.observe(c));
+  </script>
+
+</body>
+</html>
